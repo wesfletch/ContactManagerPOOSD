@@ -30,7 +30,7 @@
 
 		$stmt->close();
 		$conn->close();
-		sendResultInfoAsJson('{"id":0,"firstName":"","lastName":"","error":"All working"}'');
+		sendResultInfoAsJson('{"id":0,"firstName":"","lastName":"","error":"All working"}');
 	}
 	
 	function getRequestInfo()
