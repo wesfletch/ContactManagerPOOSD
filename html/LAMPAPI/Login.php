@@ -15,7 +15,7 @@
 	else
 	{
 		$stmt = $conn->prepare('SELECT ID,FirstName,LastName FROM Users WHERE Email=? AND Password=?;');
-		$stmt->bind_param("ss", $inData["login"], $inData["password"]);
+		$stmt->bind_param("ss", urldecode($inData["login"]), urldecode($inData["password"]));
 		$stmt->execute();
 		$result = $stmt->get_result();
 
