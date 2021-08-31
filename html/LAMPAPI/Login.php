@@ -14,7 +14,7 @@
 	}
 	else
 	{
-		$stmt = $conn->prepare("SELECT ID,FirstName,LastName FROM Users WHERE Email='COshodi' AND Password='5832a71366768098cceb7095efb774f2'");
+		$stmt = $conn->prepare("SELECT ID,FirstName,LastName FROM Users WHERE Email='COshodi' AND Password='5832a71366768098cceb7095efb774f2';");
 		//$stmt->bind_param("ss", $inData["login"], $inData["password"]);
 		$stmt->execute();
 		$result = $stmt->get_result();
