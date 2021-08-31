@@ -14,8 +14,7 @@
 	}
 	else
 	{
-		sendResultInfoAsJson('{"id":0,"firstName":"","lastName":"","error":"All working"}');
-		$stmt = $conn->prepare("SELECT ID,firstName,lastName FROM Users WHERE Login=? AND Password =?");
+		$stmt = $conn->prepare("SELECT ID,FirstName,LastName FROM Users WHERE Email=? AND Password=?");
 		$stmt->bind_param("ss", $inData["login"], $inData["password"]);
 		$stmt->execute();
 		$result = $stmt->get_result();
