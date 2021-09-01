@@ -39,7 +39,7 @@
             if ($rowa = $resulta->fetch_assoc())    {
                 $newid = $rowa["ID"];
                 $oNewStmt->close();
-                $aNewStmt = conn->prepare('INSERT INTO Majors (Name, UserID) VALUES (?, ?)');
+                $aNewStmt = $conn->prepare('INSERT INTO Majors (Name, UserID) VALUES (?, ?)');
                 $aNewStmt->bind_param("si", $inData["major"], $newid);
                 $aNewStmt->execute();
                 $aNewStmt->close();
