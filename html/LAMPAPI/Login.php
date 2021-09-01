@@ -1,6 +1,6 @@
 
 <?php
-
+	// From post request
 	$inData = getRequestInfo();
 	
 	$id = 0;
