@@ -42,7 +42,7 @@ paths:
                     example: "No error"
   /Register:
     post:
-      description: "Registers a new user. Note we are supposed to be using client-side hashing."
+      description: "Registers a new user. Note we are supposed to be using client-side hashing. Set test to true if you don't actually want to add the user to the database."
       requestBody:
         content:
             application/json:
@@ -67,6 +67,9 @@ paths:
                   major:
                     type: string
                     example: Computer Science
+                  test:
+                    type: boolean
+                    example: False
       responses:
         '200':
           description: Whether or not a user was created. If not, result will be "Error creating new user; error description"  
@@ -78,3 +81,6 @@ paths:
                   result:
                     type: string
                     example: "User successfully created."
+                  id:
+                    type: integer
+                    example: 2
