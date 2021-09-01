@@ -1,0 +1,86 @@
+openapi: '3.0.2'
+info:
+  title: POOSD LAMP Small Project
+  version: '1.0'
+servers:
+  - url: https://api.server.test/v1
+
+paths:
+  /Login.php:
+    post:
+      description: Sees if some user exists in our system or not. If not, error will contain "No Records Found"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                login:
+                  type: string
+                  example: "MScott@SmallProject.com"
+                password:
+                  type: string
+                  example: COP4331m
+      responses:
+        '200':
+          description: User ID, first name, and last name
+          content:
+            application/json:
+              schema: 
+                properties:
+                  id:
+                    type: integer
+                    example: 6
+                  firstName:
+                    type: string
+                    example: Mahlon
+                  lastName:
+                    type: string
+                    example: Scott
+                  error:
+                    type: string
+                    example: "No error"
+  /Register.php:
+    post:
+      description: Registers a new user. Note we are supposed to be using client-side hashing. Set test to true if you don't actually want to add the user to the database. 
+      requestBody:
+        content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  email:
+                    type: string
+                    example: welcome@gmail.com
+                  password:
+                    type: string
+                    example: 5f4dcc3b5aa765d61d8327deb882cf99
+                  firstName: 
+                    type: string
+                    example: Joe
+                  lastName:
+                    type: string
+                    example: Smith
+                  phone:
+                    type: string
+                    example: "407-342-4321"
+                  major:
+                    type: string
+                    example: Computer Science
+                  test:
+                    type: boolean
+                    example: True
+      responses:
+        '200':
+          description: Whether or not a user was created. If not, result will be "Error creating new user; error description". Returns ID of new user if successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+                    example: "User successfully created."
+                  id:
+                    type: integer
+                    example: 2
