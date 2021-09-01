@@ -3,7 +3,7 @@ info:
   title: POOSD LAMP Small Project
   version: '1.0'
 servers:
-  - url: https://api.server.test/v1
+  - url: http://143.198.116.115/LAMPAPI
 
 paths:
   /Login.php:
