@@ -1,0 +1,41 @@
+openapi: '3.0.2'
+info:
+  title: POOSD LAMP Small Project
+  version: '1.0'
+servers:
+  - url: https://api.server.test/v1
+
+paths:
+  /Login:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                login:
+                  type: string
+                  example: "MScott@SmallProject.com"
+                password:
+                  type: string
+                  example: COP4331m
+      responses:
+        '200':
+          description: User ID, first name, and last name
+          content:
+            application/json:
+              schema: 
+                properties:
+                  id:
+                    type: integer
+                    example: 6
+                  firstName:
+                    type: string
+                    example: Mahlon
+                  lastName:
+                    type: string
+                    example: Scott
+                  error:
+                    type: string
+                    example: "No error"
