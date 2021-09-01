@@ -6,7 +6,7 @@ servers:
   - url: https://api.server.test/v1
 
 paths:
-  /Login:
+  /Login.php:
     post:
       description: Sees if some user exists in our system or not. If not, error will contain "No Records Found"
       requestBody:
@@ -40,9 +40,9 @@ paths:
                   error:
                     type: string
                     example: "No error"
-  /Register:
+  /Register.php:
     post:
-      description: "Registers a new user. Note we are supposed to be using client-side hashing. Set test to true if you don't actually want to add the user to the database."
+      description: Registers a new user. Note we are supposed to be using client-side hashing. Set test to true if you don't actually want to add the user to the database. 
       requestBody:
         content:
             application/json:
@@ -69,10 +69,10 @@ paths:
                     example: Computer Science
                   test:
                     type: boolean
-                    example: False
+                    example: True
       responses:
         '200':
-          description: Whether or not a user was created. If not, result will be "Error creating new user; error description"  
+          description: Whether or not a user was created. If not, result will be "Error creating new user; error description". Returns ID of new user if successful.
           content:
             application/json:
               schema:
