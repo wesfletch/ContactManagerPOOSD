@@ -1,9 +1,10 @@
 <html>
 <head>
+  <title>Contact Manager</title>
+  <script type="text/javascript" src="js/code.js"></script>
   <!--Imports boostrap-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="style.css">
-  <title>Contact Manager</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <div class = "container-fluid mt-5" align="center">
@@ -31,7 +32,14 @@
     <div class = "row mt-2">
       <div class = "col"></div>
       <div class = "col">
-        <button type="button" id="loginButton" class="buttons" onclick="">Login</button>
+        <button type="button" id="loginButton" class="buttons" onclick="doLogin();">Login</button>
+      </div>
+      <div class = "col"></div>
+    </div>
+    <div class = "row mt-2">
+      <div class = "col"></div>
+      <div class = "col">
+        <h5 id="loginError"></h5>
       </div>
       <div class = "col"></div>
     </div>
@@ -45,3 +53,4 @@
   </div>
 </body>
 </html>
+
