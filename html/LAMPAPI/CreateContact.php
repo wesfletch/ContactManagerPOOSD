@@ -10,8 +10,7 @@
     $phone = "";
     $dateCreated = date("Y-m-d H:m:s");
 
-    $conn = new mysqli("localhost", "root", "1Wesrulez!", "COP4331");
-    // $conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4431", "SmallProject");
+    $conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4431", "SmallProject");
     if( $conn->connect_error )
     {
         returnWithError( $conn->connect_error );
