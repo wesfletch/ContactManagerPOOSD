@@ -108,26 +108,26 @@ paths:
                 email:
                   type: string
                   example: "guy@place.com"
-        responses:
-          '200':
-            description: Whether a new contact was created or not. If not, result will be "Error creating contact;" If creation is successful, returns the contact ID, last name, and first name.
-            content:
-              application/json:
-                schema:
-                  type: object
-                  properties:
-                    result:
-                      type: string
-                      example: "Contact created successfully."
-                    contactID:
-                      type: integer
-                      example: 1
-                    lastname:
-                      type: string
-                      example: "Smith"
-                    firstname:
-                      type: string
-                      example: "Joe"
+      responses:
+        '200':
+          description: Whether a new contact was created or not. If not, result will be "Error creating contact;" If creation is successful, returns the contact ID, last name, and first name.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+                    example: "Contact created successfully."
+                  contactID:
+                    type: integer
+                    example: 1
+                  lastname:
+                    type: string
+                    example: "Smith"
+                  firstname:
+                    type: string
+                    example: "Joe"
 
                       
                     
