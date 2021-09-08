@@ -109,7 +109,7 @@ paths:
                   example: "guy@place.com"
       responses:
         '200':
-          description: Whether a new contact was created or not. If not, result will be "Error creating contact;" If creation is successful, returns the contact ID, last name, and first name.
+          description: Whether a new contact was created or not. If not, result will be "Error creating contact;" If creation is successful, returns "Contact created successfully."
           content:
             application/json:
               schema:
