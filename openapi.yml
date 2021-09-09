@@ -208,16 +208,16 @@ paths:
                     userID:
                       type: integer
                       example: 1
-                    firstname:
+                    FirstName:
                       type: string
                       example: Joe
-                    lastname:
+                    LastName:
                       type: string
                       example: Smith
-                    email:
+                    Email:
                       type: string
                       example: "guy@place.com"
-                    phone:
+                    Phone:
                       type: string
                       example: "000-000-0000"
   /SearchContacts.php:
@@ -249,15 +249,15 @@ paths:
                     userID:
                       type: integer
                       example: 1
-                    firstname:
+                    FirstName:
                       type: string
                       example: Joe
-                    lastname:
+                    LastName:
                       type: string
                       example: Smith
-                    email:
+                    Email:
                       type: string
                       example: "guy@place.com"
-                    phone:
+                    Phone:
                       type: string
                       example: "000-000-0000"
