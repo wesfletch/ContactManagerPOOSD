@@ -217,3 +217,41 @@ paths:
                     phone:
                       type: string
                       example: "000-000-0000"
+  /SearchContacts.php:
+    get:
+      description: Searches a user's contacts, partially matching the input string to their phone, email, first name, and last name.
+      parameters:
+        - in: query
+          name: userID
+          schema:
+            type: integer
+          example: 1
+          description: "The ID of the user whose contact list we want to search"
+        - in: query
+          name: pattern
+          schema:
+            type: string
+          example: "J"
+          description: "The string we are partially matching"
+      responses:
+        '200':
+          description: The list of contacts containing pattern.
+          content:
+            application/json:
+              schema:
+                type: array
+                items: 
+                  type: object
+                  properties:
+                    firstname:
+                      type: string
+                      example: Joe
+                    lastname:
+                      type: string
+                      example: Smith
+                    email:
+                      type: string
+                      example: "guy@place.com"
+                    phone:
+                      type: string
+                      example: "000-000-0000"
