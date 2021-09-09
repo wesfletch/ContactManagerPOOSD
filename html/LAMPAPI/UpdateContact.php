@@ -70,7 +70,7 @@
 
         // update the contact
         $newStmt = $conn->prepare('UPDATE Contacts SET Phone = ?, Email = ?, FirstName = ?, LastName = ? WHERE userID = ? AND Email = ?;');
-        $newStmt->bind_param("ssssis", $newphone, $newlast, $newfirst, $newemail, $userID, $oldemail);
+        $newStmt->bind_param("ssssis", $newphone, $newemail, $newfirst, $newlast, $userID, $oldemail);
         if ( $newStmt->execute() ) 
         {
             $newStmt->close();
