@@ -53,6 +53,11 @@ function doLogin()
 	}
 }
 
+function goToRegister()
+{
+	window.location.href = "registration.html";
+}
+
 function saveCookie()
 {
   var minutes = 20;
