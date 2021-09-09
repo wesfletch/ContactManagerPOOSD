@@ -23,6 +23,7 @@
         $result = $stmt->get_result();
         if ( $row = $result->fetch_assoc()  )
         {
+            echo "Hello";
             $oldphone = $row["Phone"];
             $oldemail = $row["Email"];
             $oldfirst = $row["FirstName"];
