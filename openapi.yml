@@ -197,7 +197,7 @@ paths:
           description: "The ID of the user whose contact list we want to get"
       responses:
         '200':
-          description: The list of contacts for the user.
+          description: The list of contacts for the user, note that the userID should be the same for all contacts in the list and is unnecessary.
           content:
             application/json:
               schema:
@@ -205,6 +205,9 @@ paths:
                 items: 
                   type: object
                   properties:
+                    userID:
+                      type: integer
+                      example: 1
                     firstname:
                       type: string
                       example: Joe
@@ -235,7 +238,7 @@ paths:
           description: "The string we are partially matching"
       responses:
         '200':
-          description: The list of contacts containing pattern.
+          description: The list of contacts containing pattern, note that the userID should be the same for all contacts in the list and is unnecessary.
           content:
             application/json:
               schema:
@@ -243,6 +246,9 @@ paths:
                 items: 
                   type: object
                   properties:
+                    userID:
+                      type: integer
+                      example: 1
                     firstname:
                       type: string
                       example: Joe
