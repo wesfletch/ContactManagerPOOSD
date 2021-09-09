@@ -1,9 +1,6 @@
 <?php
     // From post request
-    echo "sadfasdfddsrfasdfasftgrfawefgae";
-    exit(0);
     $inData = getRequestInfo();
-    echo "sadfasdfddsrfasdfasftg";
 
     // setting defaults
     $userID = $inData["userID"];
@@ -44,7 +41,7 @@
         }
         else
         {
-            $newlast = $oldlast
+            $newlast = $oldlast;
         }
         if (array_key_exists("firstname", $modified))
         {
