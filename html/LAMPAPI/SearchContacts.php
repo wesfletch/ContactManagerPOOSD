@@ -13,8 +13,9 @@
     else
     {
         // find any contacts associated with a userID
-        $stmt = $conn->prepare('SELECT * FROM Contacts WHERE FirstName like "%?%" OR LastName LIKE "%?%" OR Email LIKE "%?%" OR Phone LIKE "%?%" AND userID=?;');
-        $stmt->bind_param("ssssi", $pattern, $userID);
+        $pattern = sprintf("%%%s%%", $pattern);
+        $stmt = $conn->prepare('SELECT * FROM Contacts WHERE FirstName like ? OR LastName LIKE ? OR Email LIKE ? OR Phone LIKE ? AND userID=?;');
+        $stmt->bind_param("ssssi", $pattern, $pattern, $pattern, $pattern, $userID);
         $stmt->execute();
         $result = $stmt->get_result();
         $out_array = "[";
