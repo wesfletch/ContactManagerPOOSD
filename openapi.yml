@@ -3,8 +3,7 @@ info:
   title: POOSD LAMP Small Project
   version: '1.0'
 servers:
-  - url: https://api.server.test/v1
-
+  - url: http://cop4331smallprojectfall21.fun/LAMPAPI
 paths:
   /Login.php:
     post:
@@ -110,7 +109,7 @@ paths:
                   example: "guy@place.com"
       responses:
         '200':
-          description: Whether a new contact was created or not. If not, result will be "Error creating contact;" If creation is successful, returns the contact ID, last name, and first name.
+          description: Whether a new contact was created or not. If not, result will contain "Error creating contact;" If creation is successful, returns "Contact created successfully."
           content:
             application/json:
               schema:
@@ -119,18 +118,140 @@ paths:
                   result:
                     type: string
                     example: "Contact created successfully."
-                  contactID:
-                    type: integer
-                    example: 1
-                  lastname:
+  /UpdateContact.php:
+    post:
+      description: Modifies an existing contact, uses email to identify which contact to modify. Does not modify any information not specified in modifications.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userID:
+                  type: integer
+                  example: 1
+                email:
+                  type: string
+                  example: "guy@place.com"
+                modifications:
+                  type: object
+                  properties:
+                    lastname:
+                      type: string
+                      example: Smithy
+                    firstname:
+                      type: string
+                      example: Joed
+                    phone:
+                      type: string
+                      example: "002-000-0000"
+                    email:
+                      type: string
+                      example: "guy2@place.com"
+      responses:
+        '200':
+          description: Whether or not modification was successful. If unsuccessful, result will be "Error, contact with that email does not exist." Otherwise, returns "Contact modification succeeded."
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
                     type: string
-                    example: "Smith"
-                  firstname:
+                    example: "Contact modification succeeded."
+  /DeleteContact.php:
+    post:
+      description: Deletes a contact, specified by email.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userID:
+                  type: integer
+                  example: 1
+                email:
+                  type: string
+                  example: "guy@place.com"
+      responses:
+        '200':
+          description: Whether or not deletion was successful. If unsuccessful, result will be "Error, contact with that email does not exist." Otherwise, returns "Contact deletion succeeded."
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
                     type: string
-                    example: "Joe"
-
-                      
-                    
-
-                
-                
+                    example: "Contact deletion succeeded."
+  /GetContacts.php:
+    get:
+      description: Gets the list of contacts for a user.
+      parameters:
+        - in: query
+          name: userID
+          schema:
+            type: integer
+          example: 1
+          description: "The ID of the user whose contact list we want to get"
+      responses:
+        '200':
+          description: The list of contacts for the user.
+          content:
+            application/json:
+              schema:
+                type: array
+                items: 
+                  type: object
+                  properties:
+                    firstname:
+                      type: string
+                      example: Joe
+                    lastname:
+                      type: string
+                      example: Smith
+                    email:
+                      type: string
+                      example: "guy@place.com"
+                    phone:
+                      type: string
+                      example: "000-000-0000"
+  /SearchContacts.php:
+    get:
+      description: Searches a user's contacts, partially matching the input string to their phone, email, first name, and last name.
+      parameters:
+        - in: query
+          name: userID
+          schema:
+            type: integer
+          example: 1
+          description: "The ID of the user whose contact list we want to search"
+        - in: query
+          name: pattern
+          schema:
+            type: string
+          example: "J"
+          description: "The string we are partially matching"
+      responses:
+        '200':
+          description: The list of contacts containing pattern.
+          content:
+            application/json:
+              schema:
+                type: array
+                items: 
+                  type: object
+                  properties:
+                    firstname:
+                      type: string
+                      example: Joe
+                    lastname:
+                      type: string
+                      example: Smith
+                    email:
+                      type: string
+                      example: "guy@place.com"
+                    phone:
+                      type: string
+                      example: "000-000-0000"
