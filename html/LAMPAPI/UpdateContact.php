@@ -18,12 +18,11 @@
     {
         // check if email is associated with a contact
         $stmt = $conn->prepare('SELECT * FROM Contacts WHERE userID=? and Email=?');
-        $stmt->bind_param("is", $owner, $email);
+        $stmt->bind_param("is", $userID, $email);
         $stmt->execute();
         $result = $stmt->get_result();
         if ( $row = $result->fetch_assoc()  )
         {
-            echo "Hello";
             $oldphone = $row["Phone"];
             $oldemail = $row["Email"];
             $oldfirst = $row["FirstName"];
