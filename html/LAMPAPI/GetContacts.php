@@ -20,8 +20,8 @@
         while ($row = $result->fetch_assoc()) {
             $out_array = sprintf("%s%s,", $out_array, json_encode($row));
         }
+        $out_array = substr_replace($out_array, "", -1);
         $out_array = sprintf("%s]", $out_array);
-        $out_array = substr_replace($out_array, "", -2);
         sendResultInfoAsJson($out_array);
         $stmt->close();
 
