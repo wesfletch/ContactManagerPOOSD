@@ -1,6 +1,7 @@
 <?php
     // From post request
     $inData = getRequestInfo();
+    echo "sadfasdfddsrfasdfasftg";
 
     // setting defaults
     $userID = $inData["userID"];
