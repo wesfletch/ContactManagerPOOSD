@@ -24,7 +24,7 @@
         $result = $stmt->get_result();
         if ( $row = $result->fetch_assoc()  )
         {
-            returnWithError("Error creating contact; contact with email %s already exists", $email);
+            returnWithError(sprintf("Error creating contact; contact with email %s already exists", $email));
         }
         $stmt->close();
 
