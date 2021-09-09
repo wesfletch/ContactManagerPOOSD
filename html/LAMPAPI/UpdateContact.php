@@ -16,6 +16,7 @@
     }
     else
     {
+        echo "sadfasdfd";
         // check if email is associated with a contact
         $stmt = $conn->prepare('SELECT * FROM Contacts WHERE userID=? and Email=?');
         $stmt->bind_param("is", $owner, $email);
