@@ -16,7 +16,6 @@
     }
     else
     {
-        echo "sadfasdfd";
         // check if email is associated with a contact
         $stmt = $conn->prepare('SELECT * FROM Contacts WHERE userID=? and Email=?');
         $stmt->bind_param("is", $owner, $email);
@@ -32,6 +31,7 @@
         else
         {
             sendResultInfoAsJson('{"result": "Error, contact with that email does not exist."}');
+            exit(0);
         }
         $stmt->close();
 
