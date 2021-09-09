@@ -1,5 +1,7 @@
 <?php
     // From post request
+    echo "sadfasdfddsrfasdfasftgrfawefgae";
+    exit(0);
     $inData = getRequestInfo();
     echo "sadfasdfddsrfasdfasftg";
 
