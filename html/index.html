@@ -7,50 +7,49 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class = "container-fluid mt-5" align="center">
-    <div class = "row">
-      <div class = "col"></div>
-      <div class = "col">
-        <h2 id="mainHeader">Contact Manager</h2>
+  <!--bootstrap container is fixed width-->
+  <div class="container">
+    <div class="row">
+      <!--md means max width will be 100% on small screens, 720px on medium,
+      992px on large, and 1140px on extra large, the 5 means it will use 5/12 cols
+      the mx-auto horizontally centers it-->
+      <div class="col-md-5 mx-auto">
+        <div class="loginForm">
+          <!--mb means bottom margin-->
+          <div class="mb-3">
+            <div class="col-md-12 text-center">
+              <h1>Login</h1>
+            </div>
+          </div>
+          <form>
+            <div class="form-group">
+              <label>Username</label>
+              <input type="text" class="form-control" id="loginName" placeholder="Enter Username">
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" class="form-control" id="loginPassword" placeholder="Enter Password">
+            </div>
+            <div class="form-group">
+              <button type="button" id="loginButton" class="btn btn-block btn-dark" onclick="doLogin();">Login</button>
+            </div>
+            <div class="form-group">
+              <h5 id="loginError"></h5>
+            </div>
+            <div class="col-md-12 ">
+              <div class="login-or">
+                 <!--hr = horizonal line-->
+                 <hr class="hr-or">
+                 <span class="span-or">or</span>
+              </div>
+           </div>
+           <div class="form-group">
+             <button type="button" id="createAccountButton" class="btn btn-block btn-secondary" onclick="goToRegister();">Create New Account</button>
+           </div>
+          </form>
+        </div>
       </div>
-      <div class = "col"></div>
-    </div>
-    <div class = "row mt-1">
-      <div class = "col"></div>
-      <div class = "col">
-        <input type="text" id="loginName" placeholder="Username">
-      </div>
-      <div class = "col"></div>
-    </div>
-    <div class = "row mt-2">
-      <div class = "col"></div>
-      <div class = "col">
-        <input type="password" id="loginPassword" placeholder="Password">
-      </div>
-      <div class = "col"></div>
-    </div>
-    <div class = "row mt-2">
-      <div class = "col"></div>
-      <div class = "col">
-        <button type="button" id="loginButton" class="buttons" onclick="doLogin();">Login</button>
-      </div>
-      <div class = "col"></div>
-    </div>
-    <div class = "row mt-2">
-      <div class = "col"></div>
-      <div class = "col">
-        <h5 id="loginError"></h5>
-      </div>
-      <div class = "col"></div>
-    </div>
-    <div class = "row mt-2">
-      <div class = "col"></div>
-      <div class = "col">
-        <button type="button" id="createAccountButton" class="buttons" onclick="goToRegister();">Create New Account</button>
-      </div>
-      <div class = "col"></div>
     </div>
   </div>
 </body>
 </html>
-
