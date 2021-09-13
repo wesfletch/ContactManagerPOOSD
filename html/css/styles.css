@@ -1,15 +1,46 @@
-#loginName {
-  width: 300px;
+body{
+  /*rem is based on the font-size of the root element which can be changed by browser*/
+  padding-top:4.2rem;
+	padding-bottom:4.2rem;
+	background:rgb(131,137,150);
 }
 
-#loginPassword {
-  width: 300px;
+.loginForm{
+  /*flex display changes width based on viewport*/
+	display: flex;
+	padding: 1rem;
+	flex-direction: column;
+	width: 100%;
+	background-color: #fff;
+  /*extends background to the insdie edge of the border*/
+	background-clip: padding-box;
+	border: 2px solid rgb(0,0,0);
+  /*controls how rounded the corners are*/
+	border-radius: 1.1rem;
+	max-width: 500px;
 }
 
-#loginButton {
-  width: 300px;
+.login-or{
+  color: #aaa;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
-#createAccountButton {
-  width: 300px;
+.span-or{
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: -2px;
+  margin-left: -25px;
+  background-color: #fff;
+  width: 50px;
+  text-align: center;
+}
+
+.hr-or{
+  height: 1px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
