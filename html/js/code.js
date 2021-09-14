@@ -100,7 +100,7 @@ function doRegister()
         // {"id": 6, "firstName": "Mahlon", "lastName", "Scott", "error": "No error"}
         // {"id:" 0, "firstName": "", "lastName": "", "error": "No Records Found"}
 	var jsonObject = JSON.parse(request.responseText);
-	if (jsonObject.result === "User successfully created.")
+	if (jsonObject.result === "User successfully created")
 	{
 		userId = jsonObject.id;
 		firstName = firstNameRegister;
