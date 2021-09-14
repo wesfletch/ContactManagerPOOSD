@@ -8,139 +8,53 @@
 </head>
 
 <body>
-  <div class = "container-fluid mt-5" align="center">
+  <div class = "container">
     <div class = "row">
-      <div class = "col"></div>
-      <div class = "col">
-        <h2 id="mainHeader">Registration</h2>
-      </div>
-      <div class = "col"></div>
-	</div>
-  
-  <div class = "container-fluid mt-4" align="center">
-	<div class = "row">
-		<div class = "col"></div>
-		<div class = "col">
-			<h2 id="subHeaderFirstName">Add First Name</h2>
+      <div class = "col-md-5 mx-auto">
+      	<div class = "registerForm">
+		<div class = "mb-3">
+        		<div class = "col-md-12 text-center">
+				<h1>Login</h1>
+      			</div>
 		</div>
-      <div class = "col"></div>
-	</div>
-   
-   <div class = "row mt-1">
-      <div class = "col"></div>
-      <div class = "col">
-        <input type="text" id="firstName" placeholder="First Name">
-      </div>
-      <div class = "col"></div>
-   </div>
-  </div>
-   
-   
-   <div class = "container-fluid mt-4" align="center">
-	<div class = "row">
-		<div class = "col"></div>
-		<div class = "col">
-			<h2 id="subHeaderLastName">Add Last Name</h2>
-		</div>
-      <div class = "col"></div>
-   </div>
-   
-   <div class = "row mt-1">
-      <div class = "col"></div>
-      <div class = "col">
-        <input type="text" id="lastName" placeholder="Last Name">
-      </div>
-      <div class = "col"></div>
-   </div>
-   </div>
-   
-   <div class = "container-fluid mt-4" align="center">
-	<div class = "row">
-		<div class = "col"></div>
-		<div class = "col">
-			<h2 id="subHeaderEmail">Add Email Below</h2>
-		</div>
-      <div class = "col"></div>
-   </div>
-   
-   <div class = "row mt-1">
-      <div class = "col"></div>
-      <div class = "col">
-        <input type="email" id="loginName" placeholder="email">
-      </div>
-      <div class = "col"></div>
-   </div>
-   </div>
-   
-   
-   <div class = "container-fluid mt-4" align="center">
-	<div class = "row">
-		<div class = "col"></div>
-		<div class = "col">
-			<h2 id="subHeaderPassword">Add Password Below</h2>
-		</div>
-      <div class = "col"></div>
-   </div>
-   
-   <div class = "row mt-2">
-      <div class = "col"></div>
-      <div class = "col">
-        <input type="password" id="loginPassword" placeholder="Password">
+		<form>
+			<div class = "form-group">
+				<label>First Name</label>
+				<input type="text" class="form-control" id="fName" placeholder="Enter First Name">
+			</div>
+			<div class="form-group">
+				<label>Last Name</label>
+				<input type="text" class="form-control" id="lName" placeholder="Enter Last Name">
+			</div>
+			<div class="form-group">
+              			<label>Email</label>
+              			<input type="text" class="form-control" id="loginName" placeholder="Enter Email">
+            		</div>
+			<div class="form-group">
+              			<label>Password</label>
+              			<input type="password" class="form-control" id="loginPassword" placeholder="Enter Password">
+            		</div>
+			<div class="form-group">
+              			<label>Phone Number</label>
+              			<input type="text" class="form-control" id="phone" placeholder="Enter Phone Number">
+            		</div>
+			<div class="form-group">
+              			<label>Major</label>
+              			<input type="text" class="form-control" id="major" placeholder="Enter Major">
+            		</div>
+			<div class="form-group">
+				<button type="button" id="registerButton" class="btn btn-block btn-dark" onclick="doRegister();">Register</button>
+			</div>
+			<div class="form-group">
+				<h5 id="registerError"></h5>
+			</div>
+		</form>
+	      </div>
+	    </div>
 	  </div>
-	  <div class = "col"></div>
-   </div>
-   </div>
-   
-   
-   <div class = "container-fluid mt-4" align="center">
-	<div class = "row">
-		<div class = "col"></div>
-		<div class = "col">
-			<h2 id="subHeaderPhone">Add Phone Number</h2>
-		</div>
-      <div class = "col"></div>
-   </div>
-   
-   <div class = "row mt-1">
-      <div class = "col"></div>
-      <div class = "col">
-        <input type="text" id="phone" placeholder="Phone Number">
-      </div>
-      <div class = "col"></div>
-   </div>
-   </div>
-   
-   
-   <div class = "container-fluid mt-4" align="center">
-	<div class = "row">
-		<div class = "col"></div>
-		<div class = "col">
-			<h2 id="subHeaderMajor">Add Major</h2>
-		</div>
-      <div class = "col"></div>
-   </div>
-   
-   <div class = "row mt-1">
-      <div class = "col"></div>
-      <div class = "col">
-        <input type="text" id="major" placeholder="Major">
-      </div>
-      <div class = "col"></div>
-   </div>
-   </div>
-   
-   
-   
-   
-   <div class = "row mt-2">
-      <div class = "col"></div>
-      <div class = "col">
-        <button type="button" id="registerButton" class="buttons" onclick="doRegister();">Register</button>
-      </div>
-      <div class = "col"></div>
-   </div>
- </div>  
+	</div>
 </body>
-</html>   
+</html>
+        
 
 
