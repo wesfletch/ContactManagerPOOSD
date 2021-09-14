@@ -56,6 +56,13 @@ function doLogin()
 	}
 }
 
+function enterLogin(event)
+{
+  if (event.keyCode === 13)
+  {
+    doLogin();
+  }
+}
 
 function goToRegister()
 {
