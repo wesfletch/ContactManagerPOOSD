@@ -79,7 +79,7 @@ function doRegister()
 
 	
 	var tmp = {firstName:firstNameRegister, lastName:lastNameRegister, email:userLoginEmail, 
-				password:password, phone:phone, major:major, test:false};
+				password:password, phone:phone, major:major, test:true};
 	var payload = JSON.stringify( tmp );
 	
 //	var url = urlBase + '/Register.' + extension;
@@ -110,7 +110,7 @@ function doRegister()
 	}
 	else
 	{
-		document.getElementById("registerError").innerHTML = "Error";
+		document.getElementById("registerError").innerHTML = jsonObject.result;
 		return;
 	}
 //	document.getElementById("accountAddResult").innerHTML = "Account has been added";
