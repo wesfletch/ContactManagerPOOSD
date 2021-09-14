@@ -65,8 +65,8 @@ function goToRegister()
 
 function doRegister()
 {
-	var firstNameRegister = document.getElementById("firstName").value;
-	var lastNameRegister = document.getElementById("lastName").value;
+	var firstNameRegister = document.getElementById("fName").value;
+	var lastNameRegister = document.getElementById("lName").value;
 	var userLoginEmail = document.getElementById("loginName").value;
 	var password = document.getElementById("loginPassword").value;
 	var phone = document.getElementById("phone").value;
