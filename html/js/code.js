@@ -1,3 +1,6 @@
+var urlBase = 'http://cop4331smallprojectfall21.fun/LAMPAPI';
+var extension = 'php';
+
 var userId = 0;
 var firstName = "";
 var lastName = "";
@@ -53,10 +56,67 @@ function doLogin()
 	}
 }
 
+
 function goToRegister()
 {
 	window.location.href = "registration.html";
 }
+
+
+function doRegister()
+{
+	var firstNameRegister = document.getElementById("firstName").value;
+	var lastNameRegister = document.getElementById("lastName").value;
+	var userLoginEmail = document.getElementById("loginName").value;
+	var password = document.getElementById("loginPassword").value;
+	var phone = document.getElementById("phone").value;
+	var major = document.getElementById("major").value;
+//	var hash = md5( password );
+	
+//	document.getElementById("loginResult").innerHTML = "";
+
+	
+	var tmp = {firstNameRegister:firstNameRegister, lastNameRegister:lastNameRegister, userLoginEmail:userLoginEmail, 
+				password:password, phone:phone, major:major};
+	var jsonPayload = JSON.stringify( tmp );
+	
+	var url = urlBase + '/Register.' + extension;
+
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try
+	{
+		xhr.onreadystatechange = function() 
+		{
+			if (this.readyState == 4 && this.status == 200) 
+			{
+				var jsonObject = JSON.parse( xhr.responseText );
+				userId = jsonObject.id;
+		
+				if( userId < 1 )
+				{		
+					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
+					return;
+				}
+		
+				firstName = jsonObject.firstName;
+				lastName = jsonObject.lastName;
+
+				saveCookie();
+	
+				window.location.href = "contacts.html";
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch(err)
+	{
+		document.getElementById("loginResult").innerHTML = err.message;
+	}
+
+}
+
 
 function saveCookie()
 {
