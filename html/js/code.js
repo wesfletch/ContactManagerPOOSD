@@ -1,5 +1,5 @@
-var urlBase = 'http://cop4331smallprojectfall21.fun/LAMPAPI';
-var extension = 'php';
+//var urlBase = 'http://cop4331smallprojectfall21.fun/LAMPAPI';
+//var extension = 'php';
 
 var userId = 0;
 var firstName = "";
@@ -80,39 +80,46 @@ function doRegister()
 				password:password, phone:phone, major:major};
 	var jsonPayload = JSON.stringify( tmp );
 	
-	var url = urlBase + '/Register.' + extension;
-
-	var xhr = new XMLHttpRequest();
-	xhr.open("POST", url, true);
-	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-	try
-	{
-		xhr.onreadystatechange = function() 
-		{
-			if (this.readyState == 4 && this.status == 200) 
-			{
-				var jsonObject = JSON.parse( xhr.responseText );
-				userId = jsonObject.id;
-		
-				if( userId < 1 )
-				{		
-					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
-					return;
-				}
-		
-				firstName = jsonObject.firstName;
-				lastName = jsonObject.lastName;
-
-				saveCookie();
+//	var url = urlBase + '/Register.' + extension;
 	
-				window.location.href = "contacts.html";
-			}
-		};
-		xhr.send(jsonPayload);
-	}
-	catch(err)
+	 var request = new XMLHttpRequest();
+  	var endpoint = '/Register.php';
+  	request.open("POST", "http://143.198.116.115/LAMPAPI" + endpoint, true);
+  	request.setRequestHeader("Content-type","application/json;charset=UTF-8");
+  try
+  {
+    request.onreadystatechange = function()
+    {
+      // readyState of 4 means the request finished and the response from server is ready
+      // status of 200 means everything is working correctly
+      if (this.readyState == 4 && this.status == 200)
+      {
+        // Example response texts
+        // {"id": 6, "firstName": "Mahlon", "lastName", "Scott", "error": "No error"}
+        // {"id:" 0, "firstName": "", "lastName": "", "error": "No Records Found"}
+
+        var jsonObject = JSON.parse(request.responseText);
+        userId = jsonObject.id;
+
+        if (userId < 1)
+        {
+          document.getElementById("loginError").innerHTML = "Invalid username or password";
+          return;
+        }
+
+        firstName = jsonObject.firstName;
+        lastName = jsonObject.lastName;
+
+        saveCookie();
+
+        window.location.href = "contacts.html";
+      }
+    };
+    request.send(payload);
+  }
+  catch(err)
 	{
-		document.getElementById("loginResult").innerHTML = err.message;
+		document.getElementById("loginError").innerHTML = err.message;
 	}
 
 }
