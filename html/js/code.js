@@ -78,8 +78,8 @@ function doRegister()
 //	document.getElementById("loginResult").innerHTML = "";
 
 	
-	var tmp = {firstNameRegister:firstNameRegister, lastNameRegister:lastNameRegister, userLoginEmail:userLoginEmail, 
-				password:password, phone:phone, major:major};
+	var tmp = {firstName:firstNameRegister, lastName:lastNameRegister, email:userLoginEmail, 
+				password:password, phone:phone, major:major, test:false};
 	var jsonPayload = JSON.stringify( tmp );
 	
 //	var url = urlBase + '/Register.' + extension;
@@ -99,10 +99,22 @@ function doRegister()
         // Example response texts
         // {"id": 6, "firstName": "Mahlon", "lastName", "Scott", "error": "No error"}
         // {"id:" 0, "firstName": "", "lastName": "", "error": "No Records Found"}
-
+	var jsonObject = JSON.parse(request.responseText);
+	if (jsonObject.result === "User successfully created.")
+	{
+		userId = jsonObject.id;
+		firstName = firstNameRegister;
+		lastName = lastNameRegister;
+		saveCookie();
+		window.location.href = "contacts.html";
+	}
+	else
+	{
+		document.getElementById("registerError").innerHTML = "Error";
+		return;
+	}
 //	document.getElementById("accountAddResult").innerHTML = "Account has been added";
 
-        window.location.href = "index.html";
       }
     };
     request.send(payload);
