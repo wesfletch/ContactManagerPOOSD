@@ -71,6 +71,8 @@ function doRegister()
 	var password = document.getElementById("loginPassword").value;
 	var phone = document.getElementById("phone").value;
 	var major = document.getElementById("major").value;
+	
+	document.getElementById("colorAddResult").innerHTML = "";
 //	var hash = md5( password );
 	
 //	document.getElementById("loginResult").innerHTML = "";
@@ -98,28 +100,16 @@ function doRegister()
         // {"id": 6, "firstName": "Mahlon", "lastName", "Scott", "error": "No error"}
         // {"id:" 0, "firstName": "", "lastName": "", "error": "No Records Found"}
 
-        var jsonObject = JSON.parse(request.responseText);
-        userId = jsonObject.id;
+//	document.getElementById("accountAddResult").innerHTML = "Account has been added";
 
-        if (userId < 1)
-        {
-          document.getElementById("loginError").innerHTML = "Invalid username or password";
-          return;
-        }
-
-        firstName = jsonObject.firstName;
-        lastName = jsonObject.lastName;
-
-        saveCookie();
-
-        window.location.href = "contacts.html";
+        window.location.href = "index.html";
       }
     };
     request.send(payload);
   }
   catch(err)
 	{
-		document.getElementById("loginError").innerHTML = err.message;
+		document.getElementById("registerError").innerHTML = err.message;
 	}
 
 }
