@@ -72,7 +72,7 @@ function doRegister()
 	var phone = document.getElementById("phone").value;
 	var major = document.getElementById("major").value;
 	
-	document.getElementById("colorAddResult").innerHTML = "";
+	//document.getElementById("colorAddResult").innerHTML = "";
 //	var hash = md5( password );
 	
 //	document.getElementById("loginResult").innerHTML = "";
