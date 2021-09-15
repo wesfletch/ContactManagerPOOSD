@@ -150,3 +150,30 @@ function doLogout()
 	document.cookie = "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
 	window.location.href = "index.html";
 }
+
+function getContacts()
+{
+  var payload = JSON.stringify({userID:userId});
+  var request = new XMLHttpRequest();
+  var endpoint = '/GetContacts.php';
+  request.open("GET", "http://143.198.116.115/LAMPAPI" + endpoint, true);
+  request.setRequestHeader("Content-type","application/json;charset=UTF-8");
+  try
+  {
+    request.onreadystatechange = function()
+    {
+      // readyState of 4 means the request finished and the response from server is ready
+      // status of 200 means everything is working correctly
+      if (this.readyState == 4 && this.status == 200)
+      {
+        var jsonArray = JSON.parse(request.responseText);
+        return jsonArray;
+      }
+    };
+    request.send(payload);
+  }
+  catch(err)
+  {
+    document.getElementById("loginError").innerHTML = err.message;
+  }
+}
