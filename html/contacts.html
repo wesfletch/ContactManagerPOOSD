@@ -5,15 +5,42 @@
   <!--Imports boostrap-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/styles.css">
+  <!--Imports jquery-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!--js code to make table work-->
+  <script>
+    // Runs when page is loading
+    $(document).ready()
+    {
+      var jsonArray = getContacts();
+      for (var i = 0; i < jsonArray.length; i++)
+      {
+        var contact = jsonArray[i];
+        var name = '<option>' + contact.firstName + ' ' + contact.lastName + '</option';
+        $('contactSelect').append(name);
+      }
+      $('contactSelect').multiselect('rebuild');
+    }
+  </script>
 </head>
 <body>
-  <div class = "container-fluid mt-5" align="center">
-    <div class = "row mt-2">
-      <div class = "col"></div>
-      <div class = "col">
-        <button type="button" id="logoutButton" class="buttons" onclick="doLogout();">Logout</button>
+  <!--bootstrap container is fixed width-->
+  <div class="container">
+    <div class="row">
+      <!--md means max width will be 100% on small screens, 720px on medium,
+      992px on large, and 1140px on extra large, the 5 means it will use 5/12 cols
+      the mx-auto horizontally centers it-->
+      <div class="col-md-5 mx-auto">
+        <div class="mainForms">
+          <form>
+            <div class="form-group">
+              <select multiple class="form-control" id="contactSelect"></select>
+           <div class="form-group">
+             <button type="button" id="logoutButton" class="btn btn-block btn-dark" onclick="doLogout();">Logout</button>
+           </div>
+          </form>
+        </div>
       </div>
-      <div class = "col"></div>
     </div>
   </div>
 </body>
