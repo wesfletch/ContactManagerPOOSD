@@ -10,8 +10,7 @@
   <!--js code to make table work-->
   <script>
     // Runs when page is loading
-    $(document).ready()
-    {
+    $(document).ready(function(){
       document.getElementById("testContacts").innerHTML = "Making sure this code is running";
       var jsonArray = getContacts();
       document.getElementById("testContacts").innerHTML = jsonArray;
@@ -22,7 +21,7 @@
         $('contactSelect').append(name);
       }
       $('contactSelect').multiselect('rebuild');
-    }
+    });
   </script>
 </head>
 <body>
