@@ -13,6 +13,7 @@
     $(document).ready()
     {
       var jsonArray = getContacts();
+      document.getElementById("testContacts").innerHTML = jsonArray;
       for (var i = 0; i < jsonArray.length; i++)
       {
         var contact = jsonArray[i];
