@@ -153,27 +153,15 @@ function doLogout()
 
 function getContacts()
 {
+  document.getElementById("testContacts").innerHTML = "testing123";
   var payload = JSON.stringify({userID:userId});
   var request = new XMLHttpRequest();
+  request.overrideMimeType("application/json");
   var endpoint = '/GetContacts.php';
   request.open("GET", "http://143.198.116.115/LAMPAPI" + endpoint, true);
-  request.setRequestHeader("Content-type","application/json;charset=UTF-8");
-  try
-  {
-    request.onreadystatechange = function()
-    {
-      // readyState of 4 means the request finished and the response from server is ready
-      // status of 200 means everything is working correctly
-      if (this.readyState == 4 && this.status == 200)
-      {
-        var jsonArray = JSON.parse(request.responseText);
-        return jsonArray;
-      }
-    };
-    request.send(payload);
+  request.onload = function() {
+    var jsonArray = JSON.parse(reqest.responseText);
+    return jsonArray;
   }
-  catch(err)
-  {
-    document.getElementById("loginError").innerHTML = err.message;
-  }
+  request.send(payload);
 }
