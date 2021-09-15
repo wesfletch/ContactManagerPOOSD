@@ -12,6 +12,7 @@
     // Runs when page is loading
     $(document).ready()
     {
+      document.getElementById("testContacts").innerHTML = "Making sure this code is running";
       var jsonArray = getContacts();
       document.getElementById("testContacts").innerHTML = jsonArray;
       for (var i = 0; i < jsonArray.length; i++)
