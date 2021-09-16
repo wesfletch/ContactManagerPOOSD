@@ -169,8 +169,8 @@ function getContacts()
         return jsonArray;
       }
     };
-    request.open("GET", "http://143.198.116.115/LAMPAPI" + endpoint + "?userID=" + userId, true);
-    request.send(null);
+    request.open("GET", "http://143.198.116.115/LAMPAPI" + endpoint + "?userID=" + userId);
+    request.send();
   }
   catch(err)
   {
