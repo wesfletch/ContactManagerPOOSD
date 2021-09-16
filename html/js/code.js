@@ -166,8 +166,7 @@ function getContacts()
       if (this.readyState == 4 && this.status == 200)
       {
 	//document.getElementById("contactsError").innerHTML = "http://143.198.116.115/LAMPAPI" + endpoint + "?userID=" + userId + this.responseText;  
-        var jsonArray = JSON.parse(request.responseText);
-	document.getElementById("contactsError").innerHTML = jsonArray;
+        var jsonArray = this.responseText;
         return jsonArray;
       }
     };
