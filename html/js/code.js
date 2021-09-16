@@ -172,7 +172,8 @@ function getContacts()
 	for (var i = 0; i < jsonArray.length; i++)
 	{
 		var jsonObject = jsonArray[i];
-		alert(jsonArray[0].FirstName + " " + jsonObject[0].LastName);
+		alert(JSON.stringify(jsonObject));
+		alert(JSON.parse(JSON.stringify(jsonObject)).FirstName);
 		alert(jsonObject.FirstName + " " + jsonObject.LastName);
 		$('#contactSelect').append('<option>' + jsonObject.FirstName + ' ' + jsonObject.LastName + '</option>');
 	}
