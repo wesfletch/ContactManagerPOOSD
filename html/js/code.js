@@ -156,12 +156,24 @@ function getContacts()
   document.getElementById("testContacts").innerHTML = "testing123";
   var payload = JSON.stringify({userID:userId});
   var request = new XMLHttpRequest();
-  request.overrideMimeType("application/json");
   var endpoint = '/GetContacts.php';
-  request.open("GET", "http://143.198.116.115/LAMPAPI" + endpoint, true);
-  request.onload = function() {
-    var jsonArray = JSON.parse(reqest.responseText);
-    return jsonArray;
+  try
+  {
+    request.onreadystatechange = function()
+    {
+      // readyState of 4 means the request finished and the response from server is ready
+      // status of 200 means everything is working correctly
+      if (this.readyState == 4 && this.status == 200)
+      {
+        var jsonArray = JSON.parse(request.responseText);
+        return jsonArray;
+      }
+    };
+    request.open("GET", "http://143.198.116.115/LAMPAPI" + endpoint, true);
+    request.send(payload);
   }
-  request.send(payload);
+  catch(err)
+  {
+    document.getElementById("contactsError").innerHTML = err.message;
+  }
 }
