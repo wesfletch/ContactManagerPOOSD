@@ -33,7 +33,8 @@ function doLogin()
 
         var jsonObject = JSON.parse(request.responseText);
         userId = jsonObject.id;
-
+	alert("test: " + userId);
+	      
         if (userId < 1)
         {
           document.getElementById("loginError").innerHTML = "Invalid username or password";
@@ -153,6 +154,7 @@ function doLogout()
 
 function getContacts()
 {
+  alert("testing: " + userId);
   document.getElementById("testContacts").innerHTML = "testing123";
   var payload = JSON.stringify({userID:userId});
   var request = new XMLHttpRequest();
