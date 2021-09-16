@@ -165,6 +165,7 @@ function getContacts()
       // status of 200 means everything is working correctly
       if (this.readyState == 4 && this.status == 200)
       {
+	document.getElementById("contactsError").innerHTML = request.responseText;
         var jsonArray = JSON.parse(request.responseText);
         return jsonArray;
       }
