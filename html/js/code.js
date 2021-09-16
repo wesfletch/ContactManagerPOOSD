@@ -167,15 +167,11 @@ function getContacts()
       {
 	//document.getElementById("contactsError").innerHTML = "http://143.198.116.115/LAMPAPI" + endpoint + "?userID=" + userId + this.responseText;  
         var jsonArray = this.responseText;
-	alert(jsonArray);
-	alert(typeof(jsonArray));
+	jsonArray = JSON.parse(jsonArray);
 	//$('#contactSelect').append('<option>testing</option>');
 	for (var i = 0; i < jsonArray.length; i++)
 	{
 		var jsonObject = jsonArray[i];
-		alert(typeof(jsonObject));
-		alert(JSON.stringify(jsonObject));
-		alert(JSON.parse(JSON.stringify(jsonObject)).FirstName);
 		alert(jsonObject.FirstName + " " + jsonObject.LastName);
 		$('#contactSelect').append('<option>' + jsonObject.FirstName + ' ' + jsonObject.LastName + '</option>');
 	}
