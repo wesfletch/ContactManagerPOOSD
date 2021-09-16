@@ -33,7 +33,7 @@ function doLogin()
 
         var jsonObject = JSON.parse(request.responseText);
         userId = jsonObject.id;
-	alert("test: " + userId);
+	sessionStorage.setItem("userId",userId);
 	      
         if (userId < 1)
         {
@@ -154,6 +154,7 @@ function doLogout()
 
 function getContacts()
 {
+  userId = sessionStorage.getItem("userId");
   alert("testing: " + userId);
   document.getElementById("testContacts").innerHTML = "testing123";
   var payload = JSON.stringify({userID:userId});
