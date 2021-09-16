@@ -170,7 +170,7 @@ function getContacts()
 	//$('#contactSelect').append('<option>testing</option>');
 	for (var i = 0; i < jsonArray.length; i++)
 	{
-		var jsonObject = JSON.parse(jsonArray[i]);
+		var jsonObject = jsonArray[i];
 		$('#contactSelect').append('<option>' + jsonObject.FirstName + ' ' + jsonObject.LastName + '</option>');
 	}
 	//document.getElementById("contactsError").innerHTML = jsonArray;
