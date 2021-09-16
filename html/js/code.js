@@ -154,7 +154,8 @@ function doLogout()
 function getContacts()
 {
   document.getElementById("testContacts").innerHTML = "testing123";
-  var payload = JSON.stringify({userID:userId});
+  //var payload = JSON.stringify({userID:userId});
+  var payload = userID;
   var request = new XMLHttpRequest();
   var endpoint = '/GetContacts.php';
   try
