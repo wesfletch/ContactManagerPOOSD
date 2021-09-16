@@ -11,16 +11,7 @@
   <script>
     // Runs when page is loading
     $(document).ready(function(){
-      document.getElementById("testContacts").innerHTML = "Making sure this code is running";
-      var jsonArray = getContacts();
-      document.getElementById("testContacts").innerHTML = jsonArray;
-      for (var i = 0; i < jsonArray.length; i++)
-      {
-        var contact = jsonArray[i];
-        var name = '<option>' + contact.firstName + ' ' + contact.lastName + '</option';
-        $('contactSelect').append(name);
-      }
-      $('contactSelect').multiselect('rebuild');
+      getContacts();
     });
   </script>
 </head>
@@ -40,9 +31,6 @@
             <div class="form-group">
               <button type="button" id="logoutButton" class="btn btn-block btn-dark" onclick="doLogout();">Logout</button>
             </div>
-            <div class="form-group">
-              <h5 id="testContacts">TESTING</h5>
-             </div>
             <div class="form-group">
               <h5 id="contactsError"></h5>
            </div>
