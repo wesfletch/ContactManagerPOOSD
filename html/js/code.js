@@ -154,8 +154,7 @@ function doLogout()
 function getContacts()
 {
   document.getElementById("testContacts").innerHTML = "testing123";
-  //var payload = JSON.stringify({userID:userId});
-  var payload = userID;
+  var payload = JSON.stringify({userID:userId});
   var request = new XMLHttpRequest();
   var endpoint = '/GetContacts.php';
   try
@@ -166,13 +165,12 @@ function getContacts()
       // status of 200 means everything is working correctly
       if (this.readyState == 4 && this.status == 200)
       {
-	document.getElementById("contactsError").innerHTML = request.responseText;
         var jsonArray = JSON.parse(request.responseText);
         return jsonArray;
       }
     };
-    request.open("GET", "http://143.198.116.115/LAMPAPI" + endpoint, true);
-    request.send(payload);
+    request.open("GET", "http://143.198.116.115/LAMPAPI" + endpoint + "?userID=" + userId, true);
+    request.send(null);
   }
   catch(err)
   {
