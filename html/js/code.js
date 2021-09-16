@@ -165,17 +165,13 @@ function getContacts()
       // status of 200 means everything is working correctly
       if (this.readyState == 4 && this.status == 200)
       {
-	//document.getElementById("contactsError").innerHTML = "http://143.198.116.115/LAMPAPI" + endpoint + "?userID=" + userId + this.responseText;  
         var jsonArray = this.responseText;
 	jsonArray = JSON.parse(jsonArray);
-	//$('#contactSelect').append('<option>testing</option>');
 	for (var i = 0; i < jsonArray.length; i++)
 	{
 		var jsonObject = jsonArray[i];
-		alert(jsonObject.FirstName + " " + jsonObject.LastName);
 		$('#contactSelect').append('<option>' + jsonObject.FirstName + ' ' + jsonObject.LastName + '</option>');
 	}
-	//document.getElementById("contactsError").innerHTML = jsonArray;
         return;
       }
     };
