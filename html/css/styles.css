@@ -50,3 +50,8 @@ body{
   overflow: auto;
   display: block;
 }
+
+.selected {
+    background-color: blue;
+    color: #FFF;
+}
