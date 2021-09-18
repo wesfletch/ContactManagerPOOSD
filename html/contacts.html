@@ -13,6 +13,12 @@
     $(document).ready(function(){
       getContacts();
     });
+    $(document).on('click', '#contactSelect tr', function(){
+      $(this).addClass('selected').siblings().removeClass('selected');
+      sessionStorage.setItem("selectedName", $(this).find('td').eq(0).text());
+      sessionStorage.setItem("selectedEmail", $(this).find('td').eq(1).text());
+      sessionStorage.setItem("selectedPhone", $(this).find('td').eq(2).text());
+    });
   </script>
 </head>
 <body>
@@ -27,7 +33,7 @@
           <form>
             <div class="form-group">
               <div class="scrollbar">
-                <table class="table table-bordered table-striped mb-0" id="contactSelect">
+                <table class="table table-bordered mb-0" id="contactSelect">
                   <thead>
                     <tr>
                       <th>Name</th>
