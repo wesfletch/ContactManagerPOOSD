@@ -5,7 +5,7 @@ body{
 	background:rgb(131,137,150);
 }
 
-.loginForm{
+.mainForms{
   /*flex display changes width based on viewport*/
 	display: flex;
 	padding: 1rem;
@@ -43,23 +43,6 @@ body{
   height: 1px;
   margin-top: 0px;
   margin-bottom: 0px;
-}
-
-
-
-.registerForm{
-  /*flex display changes width based on viewport*/
-	display: flex;
-	padding: 1rem;
-	flex-direction: column;
-	width: 100%;
-	background-color: #fff;
-  /*extends background to the insdie edge of the border*/
-	background-clip: padding-box;
-	border: 2px solid rgb(0,0,0);
-  /*controls how rounded the corners are*/
-	border-radius: 1.1rem;
-	max-width: 500px;
 }
 
 .scrollbar {
