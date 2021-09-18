@@ -15,9 +15,10 @@
     });
     $(document).on('click', '#contactSelect tr', function(){
       $(this).addClass('selected').siblings().removeClass('selected');
-      sessionStorage.setItem("selectedName", $(this).find('td').eq(0).text());
-      sessionStorage.setItem("selectedEmail", $(this).find('td').eq(1).text());
-      sessionStorage.setItem("selectedPhone", $(this).find('td').eq(2).text());
+      sessionStorage.setItem("selectedFirstName", $(this).find('td').eq(0).text());
+      sessionStorage.setItem("selectedLastName", $(this).find('td').eq(1).text());
+      sessionStorage.setItem("selectedEmail", $(this).find('td').eq(2).text());
+      sessionStorage.setItem("selectedPhone", $(this).find('td').eq(3).text());
     });
   </script>
 </head>
@@ -36,7 +37,7 @@
                 <table class="table table-bordered mb-0" id="contactSelect">
                   <thead>
                     <tr>
-                      <th>Name</th>
+                      <th colspan="2">Name</th>
                       <th>Email</th>
                       <th>Phone</th>
                     </tr>
