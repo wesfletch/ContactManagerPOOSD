@@ -202,3 +202,39 @@ function goToCreateContact()
 // {
 // 	window.location.href = "deleteContact.html";
 // }
+
+function createContact()
+{
+	var firstNameContact = document.getElementById("fName").value;
+	var lastNameContact = document.getElementById("lName").value;
+	var email = document.getElementById("email").value;
+	var phone = document.getElementById("phone").value;
+	
+	
+	var tmp = {firstName:firstNameRegister, lastName:lastNameRegister, email:userLoginEmail, 
+				password:password, phone:phone, major:major, test:false};
+	var payload = JSON.stringify( tmp );
+	
+	
+	userId = sessionStorage.getItem("userId");
+	var request = new XMLHttpRequest();
+	var endpoint = '/CreateContact.php';
+	
+	try
+	{
+		request.onreadystatechange = function()
+		{
+      			// readyState of 4 means the request finished and the response from server is ready
+      			// status of 200 means everything is working correctly
+      			if (this.readyState == 4 && this.status == 200)
+      			{
+	      
+      			}
+		}
+
+		
+	}
+
+
+}
+
