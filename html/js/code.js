@@ -209,16 +209,20 @@ function createContact()
 	var lastNameContact = document.getElementById("lName").value;
 	var email = document.getElementById("email").value;
 	var phone = document.getElementById("phone").value;
+	userId = sessionStorage.getItem("userId");
+
 	
-	
-	var tmp = {firstName:firstNameRegister, lastName:lastNameRegister, email:userLoginEmail, 
-				password:password, phone:phone, major:major, test:false};
+	var tmp = {userId:userId, firstName:firstNameContact, lastName:lastNameContact, email:email, 
+				password:password, phone:phone};
 	var payload = JSON.stringify( tmp );
 	
 	
-	userId = sessionStorage.getItem("userId");
+	//userId = sessionStorage.getItem("userId");
 	var request = new XMLHttpRequest();
 	var endpoint = '/CreateContact.php';
+  	request.open("POST", "http://143.198.116.115/LAMPAPI" + endpoint, true);
+  	request.setRequestHeader("Content-type","application/json;charset=UTF-8");
+	
 	
 	try
 	{
@@ -228,13 +232,25 @@ function createContact()
       			// status of 200 means everything is working correctly
       			if (this.readyState == 4 && this.status == 200)
       			{
-	      
+				var jsonObject = JSON.parse(request.responseText);
+				if (jsonObject.result === "User successfully created")
+				{
+					
+				}
+				else
+				{
+					document.getElementById("createContactError").innerHTML = jsonObject.result;
+					return;
+				}
       			}
-		}
-
+		};
+		request.send(payload);
 		
 	}
-
-
+	catch(err)
+	{
+		document.getElementById("createContactError").innerHTML = err.message;
+	}
+	
 }
 
