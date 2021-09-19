@@ -167,6 +167,7 @@ function getContacts()
       {
         var jsonArray = this.responseText;
 	jsonArray = JSON.parse(jsonArray);
+	sessionStorage.setItem("contactCount",jsonArray.length);
 	for (var i = 0; i < jsonArray.length; i++)
 	{
 		var jsonObject = jsonArray[i];
