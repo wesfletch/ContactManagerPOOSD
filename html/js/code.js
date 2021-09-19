@@ -237,7 +237,7 @@ function createContact()
 				var jsonObject = JSON.parse(request.responseText);
 				var x = sesstionStorage.getItem("contactCount") + 1;
 				
-				if (jsonObject.result === "User successfully created")
+				if (jsonObject.result === "Contact created successfully.")
 				{
 					sessionStorage.setItem("contactCount", x);
 					window.location.href = "contacts.html";
