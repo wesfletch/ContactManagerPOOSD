@@ -186,10 +186,10 @@ function getContacts()
 }
 
 
-// function goToCreateContact()
-// {
-// 	window.location.href = "createContact.html";
-// }
+function goToCreateContact()
+{
+	window.location.href = "createContact.html";
+}
 
 
 // function goToUpdateContact()
