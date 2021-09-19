@@ -220,6 +220,7 @@ function createContact()
 	
 	
 	//userId = sessionStorage.getItem("userId");
+	var x = sesstionStorage.getItem("contactCount") + 1;
 	var request = new XMLHttpRequest();
 	var endpoint = '/CreateContact.php';
   	request.open("POST", "http://143.198.116.115/LAMPAPI" + endpoint, true);
@@ -235,7 +236,6 @@ function createContact()
       			if (this.readyState == 4 && this.status == 200)
       			{
 				var jsonObject = JSON.parse(request.responseText);
-				var x = sesstionStorage.getItem("contactCount") + 1;
 				
 				if (jsonObject.result === "Contact created successfully")
 				{
