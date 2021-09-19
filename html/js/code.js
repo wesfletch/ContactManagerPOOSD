@@ -240,7 +240,7 @@ function createContact()
 				if (jsonObject.result === "User successfully created")
 				{
 					sessionStorage.setItem("contactCount", x);
-					window.location.href = "contacts.html"
+					window.location.href = "contacts.html";
 				}
 				else
 				{
