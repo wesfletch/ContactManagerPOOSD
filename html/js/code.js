@@ -186,19 +186,19 @@ function getContacts()
 }
 
 
-function goToCreateContact()
-{
-	window.location.href = "createContact.html";
-}
+// function goToCreateContact()
+// {
+// 	window.location.href = "createContact.html";
+// }
 
 
-function goToUpdateContact()
-{
-	window.location.href = "updateContact.html";
-}
+// function goToUpdateContact()
+// {
+// 	window.location.href = "updateContact.html";
+// }
 
 
-function goToDeleteContact()
-{
-	window.location.href = "deleteContact.html";
-}
+// function goToDeleteContact()
+// {
+// 	window.location.href = "deleteContact.html";
+// }
