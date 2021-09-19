@@ -211,10 +211,10 @@ function createContact()
 	var lastNameContact = document.getElementById("lName").value;
 	var email = document.getElementById("email").value;
 	var phone = document.getElementById("phone").value;
-	var userId = sessionStorage.getItem("userId");
+	userId = sessionStorage.getItem("userId");
 
-	
-	var tmp = {userId:userId, firstName:firstNameContact, lastName:lastNameContact, email:email, 
+	$("#contactSelect").append('<tr><td>' + firstNameContact + '</td><td>' + lastNameContact + '</td><td>' + email + '</td><td>' + phone + '</td></tr>');
+	var tmp = {userID:userId, firstname:firstNameContact, lastname:lastNameContact, email:email, 
 			 phone:phone};
 	var payload = JSON.stringify( tmp );
 	
