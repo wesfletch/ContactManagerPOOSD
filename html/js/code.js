@@ -211,7 +211,7 @@ function createContact()
 	var lastNameContact = document.getElementById("lName").value;
 	var email = document.getElementById("email").value;
 	var phone = document.getElementById("phone").value;
-	userId = sessionStorage.getItem("userId");
+	var userId = sessionStorage.getItem("userId");
 
 	
 	var tmp = {userId:userId, firstName:firstNameContact, lastName:lastNameContact, email:email, 
