@@ -203,6 +203,8 @@ function goToCreateContact()
 // 	window.location.href = "deleteContact.html";
 // }
 
+
+
 function createContact()
 {
 	var firstNameContact = document.getElementById("fName").value;
@@ -233,9 +235,12 @@ function createContact()
       			if (this.readyState == 4 && this.status == 200)
       			{
 				var jsonObject = JSON.parse(request.responseText);
+				var x = sesstionStorage.getItem("contactCount") + 1;
+				
 				if (jsonObject.result === "User successfully created")
 				{
-					
+					sessionStorage.setItem("contactCount", x);
+					window.location.href = "contacts.html"
 				}
 				else
 				{
