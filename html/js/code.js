@@ -213,7 +213,7 @@ function createContact()
 	var phone = document.getElementById("phone").value;
 	userId = sessionStorage.getItem("userId");
 
-	$("#contactSelect").append('<tr><td>' + firstNameContact + '</td><td>' + lastNameContact + '</td><td>' + email + '</td><td>' + phone + '</td></tr>');
+	//$("#contactSelect").append('<tr><td>' + firstNameContact + '</td><td>' + lastNameContact + '</td><td>' + email + '</td><td>' + phone + '</td></tr>');
 	var tmp = {userID:userId, firstname:firstNameContact, lastname:lastNameContact, email:email, 
 			 phone:phone};
 	var payload = JSON.stringify( tmp );
