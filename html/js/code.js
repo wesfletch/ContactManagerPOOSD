@@ -215,7 +215,7 @@ function createContact()
 
 	
 	var tmp = {userId:userId, firstName:firstNameContact, lastName:lastNameContact, email:email, 
-				password:password, phone:phone};
+			 phone:phone};
 	var payload = JSON.stringify( tmp );
 	
 	
@@ -237,7 +237,7 @@ function createContact()
 				var jsonObject = JSON.parse(request.responseText);
 				var x = sesstionStorage.getItem("contactCount") + 1;
 				
-				if (jsonObject.result === "Contact created successfully.")
+				if (jsonObject.result === "Contact created successfully")
 				{
 					sessionStorage.setItem("contactCount", x);
 					window.location.href = "contacts.html";
