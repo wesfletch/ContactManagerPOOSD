@@ -184,3 +184,9 @@ function getContacts()
     document.getElementById("contactsError").innerHTML = err.message;
   }
 }
+
+
+function goToCreateContact()
+{
+	window.location.href = "createContact.html";
+}
