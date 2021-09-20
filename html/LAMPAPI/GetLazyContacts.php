@@ -4,7 +4,7 @@
     $userID = $_GET["userID"];
     $batchSize = (int) $_GET["batch_size"];
     $batchNum = (int) $_GET["batch_number"];
-    $multiplied = $batchSize * $batchNum
+    $multiplied = $batchSize * $batchNum;
     
     $conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4431", "SmallProject");
     if( $conn->connect_error )
