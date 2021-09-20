@@ -261,3 +261,50 @@ paths:
                     Phone:
                       type: string
                       example: "000-000-0000"
+  /GetLazyContacts.php:
+    get:
+      description: Gets a batch of contacts
+      parameters:
+        - in: query
+          name: userID
+          schema:
+            type: integer
+          example: 1
+          description: User ID for whose contacts we want
+        - in: query
+          name: batch_size
+          schema:
+            type: integer
+          example: 2
+          description: How many contacts should the endpoint return?
+        - in: query
+          name: batch_number
+          schema:
+            type: integer
+          example: 0
+          description: Which batch do you want? i.e. batch 0, batch 1, etc.
+      responses:
+        '200':
+          description: The requested batch of contacts.
+          content:
+            application/json:
+              schema:
+                type: array
+                items: 
+                  type: object
+                  properties:
+                    userID:
+                      type: integer
+                      example: 1
+                    FirstName:
+                      type: string
+                      example: Joe
+                    LastName:
+                      type: string
+                      example: Smith
+                    Email:
+                      type: string
+                      example: "guy@place.com"
+                    Phone:
+                      type: string
+                      example: "000-000-0000"
