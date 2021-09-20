@@ -14,10 +14,10 @@
     else
     {
         // find any contacts associated with a userID
-        echo "{}";
         $stmt = $conn->prepare('SELECT * FROM Contacts WHERE userID=? LIMIT ?,?;');
         $stmt->bind_param("iii", $userID, $batchNum * $batchSize, $batchSize);
         $stmt->execute();
+        echo "{}";
         $result = $stmt->get_result();
         $out_array = "[";
         while ($row = $result->fetch_assoc()) {
