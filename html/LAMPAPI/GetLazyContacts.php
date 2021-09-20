@@ -2,8 +2,8 @@
     
     // Get query parameter
     $userID = $_GET["userID"];
-    $batchSize = $_GET["batch_size"];
-    $batchNum = $_GET["batch_number"];
+    $batchSize = (int) $_GET["batch_size"];
+    $batchNum = (int) $_GET["batch_number"];
     
     $conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4431", "SmallProject");
     if( $conn->connect_error )
@@ -17,7 +17,6 @@
         $stmt = $conn->prepare('SELECT * FROM Contacts WHERE userID=? LIMIT ?,?;');
         $stmt->bind_param("iii", $userID, $batchNum * $batchSize, $batchSize);
         $stmt->execute();
-        echo "{}";
         $result = $stmt->get_result();
         $out_array = "[";
         while ($row = $result->fetch_assoc()) {
