@@ -14,7 +14,7 @@
     else
     {
         // find any contacts associated with a userID
-        $stmt = $conn->prepare('SELECT * FROM Contacts WHERE userID=? LIMIT ?,?');
+        $stmt = $conn->prepare('SELECT * FROM Contacts WHERE userID=? LIMIT ?,?;');
         $stmt->bind_param("iii", $userID, $batchNum * $batchSize, $batchSize);
         $stmt->execute();
         $result = $stmt->get_result();
