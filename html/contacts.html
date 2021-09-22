@@ -33,7 +33,9 @@
         $("#contactSearch").hide();
         $("#contactSelect").show();
       }
-      $("#contactSearch").remove();
+      var newBody = document.createElement('tbody');
+      populate_woth_new_rows(newBody);
+      contactSearch.replaceChild(newBody, contactSearch);
       getSearch();
     });
   </script>
