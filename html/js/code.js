@@ -187,6 +187,7 @@ function getContacts()
 
 function getSearch()
 {
+  alert("test");
   userId = sessionStorage.getItem("userId");
   var request = new XMLHttpRequest();
   var endpoint = '/SearchContacts.php';
@@ -200,6 +201,7 @@ function getSearch()
       {
         var jsonArray = this.responseText;
       	jsonArray = JSON.parse(jsonArray);
+	jsonArray = JSON.parse(jsonArray);
       	for (var i = 0; i < jsonArray.length; i++)
       	{
       		var jsonObject = jsonArray[i];
@@ -209,7 +211,7 @@ function getSearch()
       }
     };
     request.open("GET", "http://143.198.116.115/LAMPAPI" + endpoint + "?userID=" + userId + "&pattern=" + document.getElementById("searchBar").value);
-    //alert("http://143.198.116.115/LAMPAPI" + endpoint + "?userID=" + userId + "&pattern=" + document.getElementById("searchBar").value);
+    alert("http://143.198.116.115/LAMPAPI" + endpoint + "?userID=" + userId + "&pattern=" + document.getElementById("searchBar").value);
     request.send();
   }
   catch(err)
@@ -328,7 +330,9 @@ function deleteContact()
 				{
 					sessionStorage.setItem("contactCount", x);
 					//window.location.href = "contacts.html";
-					window.parent.location = window.parent.location.href;
+					//window.parent.location = window.parent.location.href;
+					window.location.href = window.location.href;				
+					//window.location.reload(false); 
 				}
 				else
 				{
