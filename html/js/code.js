@@ -34,7 +34,7 @@ function doLogin()
         var jsonObject = JSON.parse(request.responseText);
         userId = jsonObject.id;
 	sessionStorage.setItem("userId",userId);
-	      
+
         if (userId < 1)
         {
           document.getElementById("loginError").innerHTML = "Invalid username or password";
@@ -79,19 +79,19 @@ function doRegister()
 	var password = document.getElementById("loginPassword").value;
 	var phone = document.getElementById("phone").value;
 	var major = document.getElementById("major").value;
-	
+
 	//document.getElementById("colorAddResult").innerHTML = "";
 //	var hash = md5( password );
-	
+
 //	document.getElementById("loginResult").innerHTML = "";
 
-	
-	var tmp = {firstName:firstNameRegister, lastName:lastNameRegister, email:userLoginEmail, 
+
+	var tmp = {firstName:firstNameRegister, lastName:lastNameRegister, email:userLoginEmail,
 				password:password, phone:phone, major:major, test:false};
 	var payload = JSON.stringify( tmp );
-	
+
 //	var url = urlBase + '/Register.' + extension;
-	
+
 	 var request = new XMLHttpRequest();
   	var endpoint = '/Register.php';
   	request.open("POST", "http://143.198.116.115/LAMPAPI" + endpoint, true);
@@ -166,17 +166,49 @@ function getContacts()
       if (this.readyState == 4 && this.status == 200)
       {
         var jsonArray = this.responseText;
-	jsonArray = JSON.parse(jsonArray);
-	sessionStorage.setItem("contactCount",jsonArray.length);
-	for (var i = 0; i < jsonArray.length; i++)
-	{
-		var jsonObject = jsonArray[i];
-		$("#contactSelect").append('<tr><td>' + jsonObject.FirstName + '</td><td>' + jsonObject.LastName + '</td><td>' + jsonObject.Email + '</td><td>' + jsonObject.Phone + '</td></tr>');
-	}
+	      jsonArray = JSON.parse(jsonArray);
+	      sessionStorage.setItem("contactCount",jsonArray.length);
+      	for (var i = 0; i < jsonArray.length; i++)
+      	{
+      		var jsonObject = jsonArray[i];
+      		$("#contactSelect").append('<tr><td>' + jsonObject.FirstName + '</td><td>' + jsonObject.LastName + '</td><td>' + jsonObject.Email + '</td><td>' + jsonObject.Phone + '</td></tr>');
+      	}
         return;
       }
     };
     request.open("GET", "http://143.198.116.115/LAMPAPI" + endpoint + "?userID=" + userId);
+    request.send();
+  }
+  catch(err)
+  {
+    document.getElementById("contactsError").innerHTML = err.message;
+  }
+}
+
+function getSearch()
+{
+  userId = sessionStorage.getItem("userId");
+  var request = new XMLHttpRequest();
+  var endpoint = '/SearchContacts.php';
+  try
+  {
+    request.onreadystatechange = function()
+    {
+      // readyState of 4 means the request finished and the response from server is ready
+      // status of 200 means everything is working correctly
+      if (this.readyState == 4 && this.status == 200)
+      {
+        var jsonArray = this.responseText;
+      	jsonArray = JSON.parse(jsonArray);
+      	for (var i = 0; i < jsonArray.length; i++)
+      	{
+      		var jsonObject = jsonArray[i];
+      		$("#contactSearch").append('<tr><td>' + jsonObject.FirstName + '</td><td>' + jsonObject.LastName + '</td><td>' + jsonObject.Email + '</td><td>' + jsonObject.Phone + '</td></tr>');
+      	}
+        return;
+      }
+    };
+    request.open("GET", "http://143.198.116.115/LAMPAPI" + endpoint + "?userID=" + userId + "&pattern=" + document.getElementById("searchBar").value);
     request.send();
   }
   catch(err)
@@ -214,18 +246,18 @@ function createContact()
 	userId = sessionStorage.getItem("userId");
 
 	//$("#contactSelect").append('<tr><td>' + firstNameContact + '</td><td>' + lastNameContact + '</td><td>' + email + '</td><td>' + phone + '</td></tr>');
-	var tmp = {userID:userId, firstname:firstNameContact, lastname:lastNameContact, email:email, 
+	var tmp = {userID:userId, firstname:firstNameContact, lastname:lastNameContact, email:email,
 			 phone:phone};
 	var payload = JSON.stringify( tmp );
-	
-	
+
+
 	//userId = sessionStorage.getItem("userId");
 	var request = new XMLHttpRequest();
 	var endpoint = '/CreateContact.php';
   	request.open("POST", "http://143.198.116.115/LAMPAPI" + endpoint, true);
   	request.setRequestHeader("Content-type","application/json;charset=UTF-8");
-	
-	
+
+
 	try
 	{
 		request.onreadystatechange = function()
@@ -249,12 +281,11 @@ function createContact()
       			}
 		};
 		request.send(payload);
-		
+
 	}
 	catch(err)
 	{
 		document.getElementById("createContactError").innerHTML = err.message;
 	}
-	
-}
 
+}
