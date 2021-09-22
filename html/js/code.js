@@ -187,6 +187,7 @@ function getContacts()
 
 function getSearch()
 {
+  alert("test");
   userId = sessionStorage.getItem("userId");
   var request = new XMLHttpRequest();
   var endpoint = '/SearchContacts.php';
@@ -200,6 +201,7 @@ function getSearch()
       {
         var jsonArray = this.responseText;
       	jsonArray = JSON.parse(jsonArray);
+	jsonArray = JSON.parse(jsonArray);
       	for (var i = 0; i < jsonArray.length; i++)
       	{
       		var jsonObject = jsonArray[i];
@@ -209,7 +211,7 @@ function getSearch()
       }
     };
     request.open("GET", "http://143.198.116.115/LAMPAPI" + endpoint + "?userID=" + userId + "&pattern=" + document.getElementById("searchBar").value);
-    //alert("http://143.198.116.115/LAMPAPI" + endpoint + "?userID=" + userId + "&pattern=" + document.getElementById("searchBar").value);
+    alert("http://143.198.116.115/LAMPAPI" + endpoint + "?userID=" + userId + "&pattern=" + document.getElementById("searchBar").value);
     request.send();
   }
   catch(err)
@@ -290,3 +292,54 @@ function createContact()
 	}
 
 }
+
+
+
+// function deleteContact()
+// {
+
+// 	var email = document.getElementById("email").value;
+// 	userId = sessionStorage.getItem("userId");
+
+// 	var tmp = {userID:userId, email:email};
+// 	var payload = JSON.stringify( tmp );
+
+
+// 	//userId = sessionStorage.getItem("userId");
+// 	var request = new XMLHttpRequest();
+// 	var endpoint = '/DeleteContact.php';
+//   	request.open("POST", "http://143.198.116.115/LAMPAPI" + endpoint, true);
+//   	request.setRequestHeader("Content-type","application/json;charset=UTF-8");
+
+
+// 	try
+// 	{
+// 		request.onreadystatechange = function()
+// 		{
+//       			// readyState of 4 means the request finished and the response from server is ready
+//       			// status of 200 means everything is working correctly
+//       			if (this.readyState == 4 && this.status == 200)
+//       			{
+// 				var jsonObject = JSON.parse(request.responseText);
+// 				var x = sessionStorage.getItem("contactCount") - 1;
+// 				if (jsonObject.result === "Contact deletion succeeded")
+// 				{
+// 					sessionStorage.setItem("contactCount", x);
+// 					window.location.href = "contacts.html";
+// 				}
+// 				else
+// 				{
+// 					document.getElementById("createContactError").innerHTML = jsonObject.result;
+// 					return;
+// 				}
+//       			}
+// 		};
+// 		request.send(payload);
+
+// 	}
+// 	catch(err)
+// 	{
+// 		document.getElementById("createContactError").innerHTML = err.message;
+// 	}
+
+// }
