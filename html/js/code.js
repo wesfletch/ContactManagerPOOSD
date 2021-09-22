@@ -330,7 +330,7 @@ function deleteContact()
 				{
 					sessionStorage.setItem("contactCount", x);
 					//window.location.href = "contacts.html";
-					window.location.reload(true);
+					window.parent.location = window.parent.location.href;
 				}
 				else
 				{
