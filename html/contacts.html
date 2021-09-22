@@ -23,6 +23,14 @@
       sessionStorage.setItem("selectedEmail", $(this).find('td').eq(2).text());
       sessionStorage.setItem("selectedPhone", $(this).find('td').eq(3).text());
     });
+    $(document).on('click', '#contactSearch tr', function(){
+      sessionStorage.setItem("selected","1");
+      $(this).addClass('selected').siblings().removeClass('selected');
+      sessionStorage.setItem("selectedFirstName", $(this).find('td').eq(0).text());
+      sessionStorage.setItem("selectedLastName", $(this).find('td').eq(1).text());
+      sessionStorage.setItem("selectedEmail", $(this).find('td').eq(2).text());
+      sessionStorage.setItem("selectedPhone", $(this).find('td').eq(3).text());
+    });
     $(document).on('input', "#searchBar", function() {
       if (document.getElementById("searchBar").value.length != 0)
       {
