@@ -24,6 +24,9 @@
         }
         $out_array = substr_replace($out_array, "", -1);
         $out_array = sprintf("%s]", $out_array);
+        if(strlen($out_array) == 1) {
+            $out_array = "[]";
+        }
         sendResultInfoAsJson($out_array);
         $stmt->close();
 
