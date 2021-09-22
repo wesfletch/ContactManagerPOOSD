@@ -329,8 +329,7 @@ function deleteContact()
 				if (jsonObject.result === "Contact deletion succeeded")
 				{
 					sessionStorage.setItem("contactCount", x);
-					//window.location.href = "contacts.html";
-					window.location.reload();
+					window.location.href = "contacts.html";
 				}
 				else
 				{
