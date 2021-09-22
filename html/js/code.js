@@ -200,6 +200,7 @@ function getSearch()
       {
         var jsonArray = this.responseText;
       	jsonArray = JSON.parse(jsonArray);
+	jsonArray = JSON.parse(jsonArray);
       	for (var i = 0; i < jsonArray.length; i++)
       	{
       		var jsonObject = jsonArray[i];
@@ -209,6 +210,7 @@ function getSearch()
       }
     };
     request.open("GET", "http://143.198.116.115/LAMPAPI" + endpoint + "?userID=" + userId + "&pattern=" + document.getElementById("searchBar").value);
+    alert("http://143.198.116.115/LAMPAPI" + endpoint + "?userID=" + userId + "&pattern=" + document.getElementById("searchBar").value);
     request.send();
   }
   catch(err)
