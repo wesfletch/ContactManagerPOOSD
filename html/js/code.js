@@ -331,8 +331,9 @@ function deleteContact()
 					sessionStorage.setItem("contactCount", x);
 					//window.location.href = "contacts.html";
 					//window.parent.location = window.parent.location.href;
-					window.location.href = window.location.href;				
-					//window.location.reload(false); 
+					//window.location.href = window.location.href;				
+					window.location.reload(true);
+					return true;
 				}
 				else
 				{
