@@ -193,7 +193,7 @@ function getLazyContacts()
     return;
   }
   userId = sessionStorage.getItem("userId");
-  var batchNumber = Number(sessionStorage.getItem(batchNumber));
+  var batchNumber = Number(sessionStorage.getItem("batchNumber"));
   var request = new XMLHttpRequest();
   var endpoint = '/GetLazyContacts.php';
   try
@@ -216,6 +216,7 @@ function getLazyContacts()
       		var jsonObject = jsonArray[i];
       		$("#contactSelect").append('<tr><td>' + jsonObject.FirstName + '</td><td>' + jsonObject.LastName + '</td><td>' + jsonObject.Email + '</td><td>' + jsonObject.Phone + '</td></tr>');
       	}
+	sessionStorage.setItem("batchNumber", batchNumber + 1);
         return;
       }
     };
