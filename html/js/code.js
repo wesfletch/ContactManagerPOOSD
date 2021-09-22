@@ -187,6 +187,7 @@ function getContacts()
 
 function getSearch()
 {
+  alert("test");
   userId = sessionStorage.getItem("userId");
   var request = new XMLHttpRequest();
   var endpoint = '/SearchContacts.php';
