@@ -11,11 +11,12 @@
   <script>
     // Runs when page is loading
     $(document).ready(function(){
-      sessionStorage.setItem("mainShowing","1");
+      sessionStorage.setItem("selected","0");
       $("#contactSearch").hide();
       getContacts();
     });
     $(document).on('click', '#contactSelect tr', function(){
+      sessionStorage.setItem("selected","1");
       $(this).addClass('selected').siblings().removeClass('selected');
       sessionStorage.setItem("selectedFirstName", $(this).find('td').eq(0).text());
       sessionStorage.setItem("selectedLastName", $(this).find('td').eq(1).text());
