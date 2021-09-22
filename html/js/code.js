@@ -201,7 +201,7 @@ function getSearch()
       {
         var jsonArray = this.responseText;
       	jsonArray = JSON.parse(jsonArray);
-	jsonArray = JSON.parse(jsonArray);
+	alert(jsonArray.length);
       	for (var i = 0; i < jsonArray.length; i++)
       	{
       		var jsonObject = jsonArray[i];
