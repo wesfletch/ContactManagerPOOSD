@@ -11,6 +11,8 @@
   <script>
     // Runs when page is loading
     $(document).ready(function(){
+      sessionStorage.setItem("mainShowing","1");
+      $("#contactSearch").hide();
       getContacts();
     });
     $(document).on('click', '#contactSelect tr', function(){
@@ -19,6 +21,20 @@
       sessionStorage.setItem("selectedLastName", $(this).find('td').eq(1).text());
       sessionStorage.setItem("selectedEmail", $(this).find('td').eq(2).text());
       sessionStorage.setItem("selectedPhone", $(this).find('td').eq(3).text());
+    });
+    $(document).on('input', "#searchBar", function() {
+      if (document.getElementById("searchBar").value.length != 0)
+      {
+        $("#contactSelect").hide();
+        $("#contactSearch").show();
+      }
+      else
+      {
+        $("#contactSearch").hide();
+        $("#contactSelect").show();
+      }
+      $("#contactSearch").remove();
+      getSearch();
     });
   </script>
 </head>
@@ -33,8 +49,22 @@
         <div class="mainForms">
           <form>
             <div class="form-group">
+              <input type="text" class="form-control" id="searchBar" placeholder="Search Contacts">
+            </div>
+            <div class="form-group">
               <div class="scrollbar">
                 <table class="table table-bordered mb-0" id="contactSelect">
+                  <thead>
+                    <tr>
+                      <th colspan="2">Name</th>
+                      <th>Email</th>
+                      <th>Phone</th>
+                      <th>Delete</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+                <table class="table table-bordered mb-0" id="contactSearch">
                   <thead>
                     <tr>
                       <th colspan="2">Name</th>
