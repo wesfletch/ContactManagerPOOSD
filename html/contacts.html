@@ -33,9 +33,7 @@
         $("#contactSearch").hide();
         $("#contactSelect").show();
       }
-      var newBody = document.createElement('tbody');
-      populate_with_new_rows(newBody);
-      contactSearch.replaceChild(newBody, contactSearch);
+      document.getElementById("mytable").innerHTML = "<thead><tr><th colspan="2">Name</th><th>Email</th><th>Phone</th><th>Delete</th></tr></thead><tbody></tbody>";
       getSearch();
     });
   </script>
