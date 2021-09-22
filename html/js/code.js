@@ -297,9 +297,13 @@ function createContact()
 
 function deleteContact()
 {
-
+	var i = sessionStorage.getItem("selected");
+	
+	if(i === "1")
+	{
 	var email = sessionStorage.getItem("selectedEmail");
 	userId = sessionStorage.getItem("userId");
+	}
 
 	var tmp = {userID:userId, email:email};
 	var payload = JSON.stringify( tmp );
