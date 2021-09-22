@@ -1,6 +1,7 @@
 //var urlBase = 'http://cop4331smallprojectfall21.fun/LAMPAPI';
 //var extension = 'php';
 
+const BATCH_SIZE = 20;
 var userId = 0;
 var firstName = "";
 var lastName = "";
@@ -185,9 +186,50 @@ function getContacts()
   }
 }
 
+function getLazyContacts()
+{
+  if (sessionStorage.getItem("finishedLoading") === "1")
+  {
+    return;
+  }
+  userId = sessionStorage.getItem("userId");
+  var batchNumber = Number(sessionStorage.getItem(batchNumber));
+  var request = new XMLHttpRequest();
+  var endpoint = '/GetLazyContacts.php';
+  try
+  {
+    request.onreadystatechange = function()
+    {
+      // readyState of 4 means the request finished and the response from server is ready
+      // status of 200 means everything is working correctly
+      if (this.readyState == 4 && this.status == 200)
+      {
+        var jsonArray = this.responseText;
+	      jsonArray = JSON.parse(jsonArray);
+	      sessionStorage.setItem("contactCount",jsonArray.length);
+        if (jsonArray.length < BATCH_SIZE)
+        {
+          sessionStorage.setItem("finishedLoading", "1");
+        }
+      	for (var i = 0; i < jsonArray.length; i++)
+      	{
+      		var jsonObject = jsonArray[i];
+      		$("#contactSelect").append('<tr><td>' + jsonObject.FirstName + '</td><td>' + jsonObject.LastName + '</td><td>' + jsonObject.Email + '</td><td>' + jsonObject.Phone + '</td></tr>');
+      	}
+        return;
+      }
+    };
+    request.open("GET", "http://143.198.116.115/LAMPAPI" + endpoint + "?userID=" + userId + "&batch_size=" + BATCH_SIZE + "&batch_number=" + batchNumber);
+    request.send();
+  }
+  catch(err)
+  {
+    document.getElementById("contactsError").innerHTML = err.message;
+  }
+}
+
 function getSearch()
 {
-  alert("test");
   userId = sessionStorage.getItem("userId");
   var request = new XMLHttpRequest();
   var endpoint = '/SearchContacts.php';
@@ -201,7 +243,6 @@ function getSearch()
       {
         var jsonArray = this.responseText;
       	jsonArray = JSON.parse(jsonArray);
-	jsonArray = JSON.parse(jsonArray);
       	for (var i = 0; i < jsonArray.length; i++)
       	{
       		var jsonObject = jsonArray[i];
@@ -211,7 +252,7 @@ function getSearch()
       }
     };
     request.open("GET", "http://143.198.116.115/LAMPAPI" + endpoint + "?userID=" + userId + "&pattern=" + document.getElementById("searchBar").value);
-    alert("http://143.198.116.115/LAMPAPI" + endpoint + "?userID=" + userId + "&pattern=" + document.getElementById("searchBar").value);
+    //alert("http://143.198.116.115/LAMPAPI" + endpoint + "?userID=" + userId + "&pattern=" + document.getElementById("searchBar").value);
     request.send();
   }
   catch(err)
