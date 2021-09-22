@@ -12,8 +12,11 @@
     // Runs when page is loading
     $(document).ready(function(){
       sessionStorage.setItem("selected","0");
+      sessionStorage.setItem("finishedLoading","0");
+      sessionStorage.setItem("batchNumber", "0");
       $("#contactSearch").hide();
-      getContacts();
+      //getContacts();
+      getLazyContacts();
     });
     $(document).on('click', '#contactSelect tr', function(){
       sessionStorage.setItem("selected","1");
@@ -44,6 +47,15 @@
       }
       document.getElementById("contactSearch").innerHTML = "<thead><tr><th colspan=\"2\">Name</th><th>Email</th><th>Phone</th><th>Delete</th></tr></thead><tbody></tbody>";
       getSearch();
+    });
+    jQuery(function($){
+      $('.scrollbar').bind('scroll', function()
+      {
+        if($(this).scrollTop() + $(this).innerHeight()>=$(this)[0].scrollHeight)
+        {
+          getLazyContacts();
+        }
+      })
     });
   </script>
 </head>
