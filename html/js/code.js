@@ -172,7 +172,7 @@ function getContacts()
 	{
 		var jsonObject = jsonArray[i];
 		$("#contactSelect").append('<tr><td>' + jsonObject.FirstName + '</td><td>' + jsonObject.LastName + '</td><td>' + jsonObject.Email + '</td><td>' + jsonObject.Phone +  
-					   '</td><td>' + '<a onclick="">Delete</a>' + '</td></tr>');
+					   '</td><td>' + <a onclick="">Delete</a> + '</td></tr>');
 	}
         return;
       }
