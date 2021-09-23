@@ -400,20 +400,6 @@ function deleteContact()
 
 
 
-// function autofillContacts()
-// {
-// 	var firstName = sessionStorage.getItem("selectedFirstName");
-// 	var lastName = sessionStorage.getItem("selectedLastName");
-// 	var email = sessionStorage.getItem("selectedEmail");
-// 	var phone = sessionStorage.getItem("selectedPhone");
-	
-// 	document.getElementById("fNameContact").value = firstName;
-// 	document.getElementById("lNameContact").value = lastName;
-// 	document.getElementById("emailContact").value = email;
-// 	document.getElementById("phoneContact").value = phone;
-// }
-
-
 // function updateContact()
 // {
 // 	userId = sessionStorage.getItem("userId");
