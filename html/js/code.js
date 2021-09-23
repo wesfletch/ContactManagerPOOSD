@@ -441,7 +441,7 @@ function updateContact()
       			{
 				var jsonObject = JSON.parse(request.responseText);
 				//var x = sessionStorage.getItem("contactCount") + 1;
-				if (jsonObject.result === "Contact modification succeeded")
+				if (jsonObject.result === "Contact modification succeeded.")
 				{
 					//sessionStorage.setItem("contactCount", x);
 					window.location.href = "contacts.html";
