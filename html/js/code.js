@@ -404,10 +404,6 @@ function deleteContact()
 
 function updateContact()
 {
-	var i = sessionStorage.getItem("selected");
-	
-	if (i === "1") 
-	{
 		userId = sessionStorage.getItem("userId");
 		var email = emailM;
 	
@@ -466,10 +462,5 @@ function updateContact()
 		{
 			document.getElementById("updateContactError").innerHTML = err.message;
 		}
-	} else {
-		document.getElementById("selectUpdateContactError").innerHTML = "Select a contact to update";
-		return;			
-	}
-	
 }
 
