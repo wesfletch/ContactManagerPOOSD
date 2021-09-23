@@ -32,14 +32,26 @@
 				<label>Last Name</label>
 				<input type="text" class="form-control" id="lNameContact">
 			</div>
+			<script>
+				var lastName = sessionStorage.getItem("selectedLastName");
+				document.getElementById("lNameContact").value = lastName;
+			</script>
 			<div class="form-group">
               			<label>Email</label>
               			<input type="text" class="form-control" id="emailContact">
-			</div>			
+			</div>
+			<script>
+				var email = sessionStorage.getItem("selectedEmail");
+				document.getElementById("emailContact").value = email;
+			</script>
 			<div class="form-group">
               			<label>Phone Number</label>
               			<input type="text" class="form-control" id="phoneContact">
 			</div>
+			<script>
+				var phone = sessionStorage.getItem("selectedPhone");
+				document.getElementById("phoneContact").value = phone;
+			</script>
 			<div class="form-group">
 				<button type="button" id="registerContactButton" class="btn btn-block btn-dark" onclick="">Update Contact</button>
 			</div>
