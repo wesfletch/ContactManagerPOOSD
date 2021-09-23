@@ -397,6 +397,7 @@ function deleteContact()
 	} else {
 		
 		document.getElementById("deleteContactError").innerHTML = "Select a contact to delete";
+		return;
 	}
 }
 
