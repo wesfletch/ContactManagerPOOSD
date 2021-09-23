@@ -339,6 +339,11 @@ function createContact()
 
 function deleteContact()
 {
+	var txt;
+	
+	var x = confirm("Delete Contact?");
+	if (x == true) 
+	{
 	var i = sessionStorage.getItem("selected");
 	
 	if(i === "1")
@@ -386,6 +391,10 @@ function deleteContact()
 	catch(err)
 	{
 		document.getElementById("deleteContactError").innerHTML = err.message;
+	}
+	} else {
+		
+		txt = "You pressed Cancel!";	
 	}
 
 }
