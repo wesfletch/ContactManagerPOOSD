@@ -24,6 +24,10 @@
 				<label>First Name</label>
 				<input type="text" class="form-control" id="fNameContact">
 			</div>
+			<script>
+				var firstName = sessionStorage.getItem("selectedFirstName");
+				document.getElementById("fNameContact").value = firstName;
+			</script>
 			<div class="form-group">
 				<label>Last Name</label>
 				<input type="text" class="form-control" id="lNameContact">
