@@ -400,59 +400,66 @@ function deleteContact()
 
 
 
-// function updateContact()
-// {
-// 	userId = sessionStorage.getItem("userId");
-// 	var email = sessionStorage.getItem("selectedEmail");
+function updateContact()
+{
+	userId = sessionStorage.getItem("userId");
+	var email = sessionStorage.getItem("selectedEmail");
 	
-// 	var firstNameMod = document.getElementById("fNameContact").value;
-// 	var lastNameMod = document.getElementById("lNameContact").value;
-// 	var emailMod = document.getElementById("emailContact").value;
-// 	var phoneMod = document.getElementById("phoneContact").value;
+	var firstNameMod = document.getElementById("fNameContact").value;
+	var lastNameMod = document.getElementById("lNameContact").value;
+	var emailMod = document.getElementById("emailContact").value;
+	var phoneMod = document.getElementById("phoneContact").value;
 	
 
-// 	//$("#contactSelect").append('<tr><td>' + firstNameContact + '</td><td>' + lastNameContact + '</td><td>' + email + '</td><td>' + phone + '</td></tr>');
-// 	var tmp = {userID:userId, firstname:firstNameContact, lastname:lastNameContact, email:email,
-// 			 phone:phone};
-// 	var payload = JSON.stringify( tmp );
+	//$("#contactSelect").append('<tr><td>' + firstNameContact + '</td><td>' + lastNameContact + '</td><td>' + email + '</td><td>' + phone + '</td></tr>');
+	var tmp = {userID:userId, 
+		   email:email,
+		   modifications: {
+			   lastname:lastNameMod,
+			   firstname:firstNameMod,
+			   phone:phoneMod,
+			   email:emailMod
+		   }	  
+		  };
+	var payload = JSON.stringify( tmp );
 
 
-// 	//userId = sessionStorage.getItem("userId");
-// 	var request = new XMLHttpRequest();
-// 	var endpoint = '/UpdateContact.php';
-//   	request.open("POST", "http://143.198.116.115/LAMPAPI" + endpoint, true);
-//   	request.setRequestHeader("Content-type","application/json;charset=UTF-8");
+	//userId = sessionStorage.getItem("userId");
+	var request = new XMLHttpRequest();
+	var endpoint = '/UpdateContact.php';
+  	request.open("POST", "http://143.198.116.115/LAMPAPI" + endpoint, true);
+  	request.setRequestHeader("Content-type","application/json;charset=UTF-8");
 
 
-// 	try
-// 	{
-// 		request.onreadystatechange = function()
-// 		{
-//       			// readyState of 4 means the request finished and the response from server is ready
-//       			// status of 200 means everything is working correctly
-//       			if (this.readyState == 4 && this.status == 200)
-//       			{
-// 				var jsonObject = JSON.parse(request.responseText);
-// 				//var x = sessionStorage.getItem("contactCount") + 1;
-// 				if (jsonObject.result === "Contact modification succeeded")
-// 				{
-// 					//sessionStorage.setItem("contactCount", x);
-// 					window.location.href = "contacts.html";
-// 				}
-// 				else
-// 				{
-// 					document.getElementById("updateContactError").innerHTML = "Email already being used in another contact";
-// 					return;
-// 				}
-//       			}
-// 		};
-// 		request.send(payload);
+	try
+	{
+		request.onreadystatechange = function()
+		{
+      			// readyState of 4 means the request finished and the response from server is ready
+      			// status of 200 means everything is working correctly
+      			if (this.readyState == 4 && this.status == 200)
+      			{
+				var jsonObject = JSON.parse(request.responseText);
+				//var x = sessionStorage.getItem("contactCount") + 1;
+				if (jsonObject.result === "Contact modification succeeded")
+				{
+					//sessionStorage.setItem("contactCount", x);
+					window.location.href = "contacts.html";
+				}
+				else
+				{
+					document.getElementById("updateContactError").innerHTML = "Email already being used in another contact";
+					return;
+				}
+      			}
+		};
+		request.send(payload);
 
-// 	}
-// 	catch(err)
-// 	{
-// 		document.getElementById("updateContactError").innerHTML = err.message;
-// 	}
+	}
+	catch(err)
+	{
+		document.getElementById("updateContactError").innerHTML = err.message;
+	}
 	
-// }
+}
 
