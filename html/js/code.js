@@ -403,7 +403,7 @@ function deleteContact()
 function updateContact()
 {
 	userId = sessionStorage.getItem("userId");
-	var email = sessionStorage.getItem("selectedEmail");
+	var email = emailM;
 	
 	var firstNameMod = document.getElementById("fNameContact").value;
 	var lastNameMod = document.getElementById("lNameContact").value;
