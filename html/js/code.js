@@ -269,10 +269,10 @@ function goToCreateContact()
 }
 
 
-// function goToUpdateContact()
-// {
-// 	window.location.href = "updateContact.html";
-// }
+function goToUpdateContact()
+{
+	window.location.href = "updateContact.html";
+}
 
 
 // function goToDeleteContact()
