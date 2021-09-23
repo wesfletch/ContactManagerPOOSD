@@ -57,6 +57,9 @@
         }
       })
     });
+    $(document).on('click',".deleteContactButton", function(e){
+      var i = $(this).closest('tr').remove();
+    });
   </script>
 </head>
 <body>
