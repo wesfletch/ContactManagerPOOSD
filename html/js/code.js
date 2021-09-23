@@ -320,7 +320,7 @@ function createContact()
 				}
 				else
 				{
-					document.getElementById("createContactError").innerHTML = "Email already being used in another contact";
+					document.getElementById("createContactError").innerHTML = jsonObject.result;
 					return;
 				}
       			}
@@ -330,7 +330,7 @@ function createContact()
 	}
 	catch(err)
 	{
-		document.getElementById("createContactError").innerHTML = "Email already used in another contact";
+		document.getElementById("createContactError").innerHTML = err.message;
 	}
 
 }
@@ -392,10 +392,10 @@ function deleteContact()
 		{
 			document.getElementById("deleteContactError").innerHTML = err.message;
 		}
-		} else {
+	} else {
 		
-			txt = "You pressed Cancel!";	
-		}
+		txt = "You pressed Cancel!";	
+	}
 }
 
 
