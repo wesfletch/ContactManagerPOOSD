@@ -339,60 +339,59 @@ function createContact()
 
 function deleteContact()
 {
-	var txt;
+	//var txt;
 	
-	var x = confirm("Delete Contact?");
 	var i = sessionStorage.getItem("selected");
 	
-	if ((x == true) && (i === "1")) 
+	if (i === "1") 
 	{
+		var x = confirm("Delete Contact?");
 		
-	
-// 		if(i === "1")
-// 		{
-		var email = sessionStorage.getItem("selectedEmail");
-		userId = sessionStorage.getItem("userId");
-//		}
+		if(x == true)
+		{
+			var email = sessionStorage.getItem("selectedEmail");
+			userId = sessionStorage.getItem("userId");
 
-		var tmp = {userID:userId, email:email};
-		var payload = JSON.stringify( tmp );
+			var tmp = {userID:userId, email:email};
+			var payload = JSON.stringify( tmp );
 
 
 	//userId = sessionStorage.getItem("userId");
-		var request = new XMLHttpRequest();
-		var endpoint = '/DeleteContact.php';
-  		request.open("POST", "http://143.198.116.115/LAMPAPI" + endpoint, true);
-  		request.setRequestHeader("Content-type","application/json;charset=UTF-8");
+			var request = new XMLHttpRequest();
+			var endpoint = '/DeleteContact.php';
+  			request.open("POST", "http://143.198.116.115/LAMPAPI" + endpoint, true);
+  			request.setRequestHeader("Content-type","application/json;charset=UTF-8");
 
 
-		try
-		{
-			request.onreadystatechange = function()
+			try
 			{
-      				// readyState of 4 means the request finished and the response from server is ready
-      				// status of 200 means everything is working correctly
-      				if (this.readyState == 4 && this.status == 200)
-      				{
-					var jsonObject = JSON.parse(request.responseText);
-					var x = sessionStorage.getItem("contactCount") - 1;
-					if (jsonObject.result === "Contact deletion succeeded")
-					{
-						sessionStorage.setItem("contactCount", x);
-						window.location.href = "contacts.html";					
-					}
-					else
-					{
-						document.getElementById("deleteContactError").innerHTML = jsonObject.result;
-						return;
-					}
-      				}
-			};
-			request.send(payload);
+				request.onreadystatechange = function()
+				{
+      					// readyState of 4 means the request finished and the response from server is ready
+      					// status of 200 means everything is working correctly
+      					if (this.readyState == 4 && this.status == 200)
+      					{
+						var jsonObject = JSON.parse(request.responseText);
+						var x = sessionStorage.getItem("contactCount") - 1;
+						if (jsonObject.result === "Contact deletion succeeded")
+						{
+							sessionStorage.setItem("contactCount", x);
+							window.location.href = "contacts.html";					
+						}
+						else
+						{
+							document.getElementById("deleteContactError").innerHTML = jsonObject.result;
+							return;
+						}
+      					}
+				};
+				request.send(payload);
 
-		}
-		catch(err)
-		{
-			document.getElementById("deleteContactError").innerHTML = err.message;
+			}
+			catch(err)
+			{
+				document.getElementById("deleteContactError").innerHTML = err.message;
+			}
 		}
 	} else {
 		
