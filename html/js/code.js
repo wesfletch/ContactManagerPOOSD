@@ -342,15 +342,17 @@ function deleteContact()
 	var txt;
 	
 	var x = confirm("Delete Contact?");
-	if (x == true) 
-	{
-		var i = sessionStorage.getItem("selected");
+	var i = sessionStorage.getItem("selected");
 	
-		if(i === "1")
-		{
-			var email = sessionStorage.getItem("selectedEmail");
-			userId = sessionStorage.getItem("userId");
-		}
+	if ((x == true) && (i === "1")) 
+	{
+		
+	
+// 		if(i === "1")
+// 		{
+		var email = sessionStorage.getItem("selectedEmail");
+		userId = sessionStorage.getItem("userId");
+//		}
 
 		var tmp = {userID:userId, email:email};
 		var payload = JSON.stringify( tmp );
@@ -394,7 +396,7 @@ function deleteContact()
 		}
 	} else {
 		
-		txt = "You pressed Cancel!";	
+		document.getElementById("deleteContactError").innerHTML = "Select a contact to delete";
 	}
 }
 
