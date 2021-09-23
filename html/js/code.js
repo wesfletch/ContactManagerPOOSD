@@ -330,7 +330,7 @@ function createContact()
 	}
 	catch(err)
 	{
-		document.getElementById("createContactError").innerHTML = err.message;
+		document.getElementById("createContactError").innerHTML = "Email already used in another contact";
 	}
 
 }
