@@ -5,6 +5,20 @@
   <!--Imports boostrap-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/styles.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	
+  <script>	
+	var firstName = sessionStorage.getItem("selectedFirstName");
+	var lastName = sessionStorage.getItem("selectedLastName");
+	var email = sessionStorage.getItem("selectedEmail");
+	var phone = sessionStorage.getItem("selectedPhone");
+	
+	document.getElementById("fNameContact").value = firstName;
+	document.getElementById("lNameContact").value = lastName;
+	document.getElementById("emailContact").value = email;
+	document.getElementById("phoneContact").value = phone;	
+  </script>
 </head>
 
 <body>
@@ -20,19 +34,19 @@
 		<form>
 			<div class = "form-group">
 				<label>First Name</label>
-				<input type="text" class="form-control" id="fName">
+				<input type="text" class="form-control" id="fNameContact">
 			</div>
 			<div class="form-group">
 				<label>Last Name</label>
-				<input type="text" class="form-control" id="lName">
+				<input type="text" class="form-control" id="lNameContact">
 			</div>
 			<div class="form-group">
               			<label>Email</label>
-              			<input type="text" class="form-control" id="email">
+              			<input type="text" class="form-control" id="emailContact">
 			</div>			
 			<div class="form-group">
               			<label>Phone Number</label>
-              			<input type="text" class="form-control" id="phone">
+              			<input type="text" class="form-control" id="phoneContact">
 			</div>
 			<div class="form-group">
 				<button type="button" id="registerContactButton" class="btn btn-block btn-dark" onclick="">Update Contact</button>
