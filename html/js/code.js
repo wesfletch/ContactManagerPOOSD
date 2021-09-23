@@ -398,3 +398,18 @@ function deleteContact()
 	}
 
 }
+
+
+function autofillContacts()
+{
+	var firstName = sessionStorage.getItem("selectedFirstName");
+	var lastName = sessionStorage.getItem("selectedLastName");
+	var email = sessionStorage.getItem("selectedEmail");
+	var phone = sessionStorage.getItem("selectedPhone");
+	
+	document.getElementById("fName").value = firstName;
+	document.getElementById("lName").value = lastName;
+	document.getElementById("email").value = email;
+	document.getElementById("phone").value = phone;
+	
+}
