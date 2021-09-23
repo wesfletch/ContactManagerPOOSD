@@ -320,7 +320,7 @@ function createContact()
 				}
 				else
 				{
-					document.getElementById("createContactError").innerHTML = jsonObject.result;
+					document.getElementById("createContactError").innerHTML = "Email already being used in another contact";
 					return;
 				}
       			}
