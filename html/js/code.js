@@ -448,7 +448,7 @@ function updateContact()
 				}
 				else
 				{
-					document.getElementById("updateContactError").innerHTML = "Email already being used in another contact";
+					document.getElementById("updateContactError").innerHTML = jsonObject.result;
 					return;
 				}
       			}
