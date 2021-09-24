@@ -11,7 +11,11 @@
   <script>
     // Runs when page is loading
     $(document).ready(function(){
-      readCookie();
+      if (localStorage.getItem("beenHereBefore") === null) 
+      {
+        localStorage.setItem("beenHereBefore", "1");
+        readCookie();
+      }
     });
   </script>
 </head>
