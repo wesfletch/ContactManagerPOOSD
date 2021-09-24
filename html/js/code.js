@@ -407,12 +407,10 @@ function createContact()
 				}
 				else
 				{
-					document.getElementById("createContactError").innerHTML = jsonObject.result;
+					document.getElementById("createContactError").innerHTML = "Email is already in use";
 					return;
 				}
-      			} else {
-				document.getElementById("createContactError").innerHTML = "Email already exist within a contact";
-			}
+      			}
 		};
 		request.send(payload);
 
