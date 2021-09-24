@@ -10,7 +10,8 @@ function doLogin()
 {
   // Grab login info from webpage
   var login = document.getElementById("loginName").value;
-	var password = document.getElementById("loginPassword").value;
+  var password = document.getElementById("loginPassword").value;
+  password = md5(password, false, false);
   var temp = {login:login, password:password};
   var payload = JSON.stringify(temp);
   // If login is gmail.com and password is 123 then payload is
