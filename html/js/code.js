@@ -399,7 +399,7 @@ function createContact()
       			if (this.readyState == 4 && this.status == 200)
       			{
 				//alert(request.responseText + " " + typeof request.reponseText);
-				if (typeof request.responseText == null)
+				if (request.responseText === undefined)
 				{
 					document.getElementById("createContactError").innerHTML = "This email is already associated with another contact";
 					return;
