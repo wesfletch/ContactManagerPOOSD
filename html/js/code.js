@@ -162,7 +162,7 @@ function doRegister()
 	}
 	else
 	{
-		document.getElementById("registerError").innerHTML = "Email already in use";
+		document.getElementById("registerError").innerHTML = "This email is already in use by another account";
 		return;
 	}
 //	document.getElementById("accountAddResult").innerHTML = "Account has been added";
@@ -407,7 +407,7 @@ function createContact()
 				}
 				else
 				{
-					document.getElementById("createContactError").innerHTML = jsonObject.result;
+					document.getElementById("createContactError").innerHTML = "This email is already associated with another contact";
 					return;
 				}
       			}
