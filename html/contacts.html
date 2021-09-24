@@ -123,17 +123,5 @@
       </div>
     </div>
   </div>
-  
-  <script>
-    var i = sessionStorage.getItem(“selectedEmail”);
-    var selector = "tr:contains("+ i +")";
-             
-    $(document).ready(function() {
-      $("#deleteContactButton").on('click', function() {
-        $(selector).remove(); 
-        deleteContact();  
-      }      
-    });
-  </script>
 </body>
 </html>
