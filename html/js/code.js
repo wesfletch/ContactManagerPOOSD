@@ -264,15 +264,21 @@ function getSearch()
 
 
 function goToCreateContact()
-{
-	
-	window.location.href = "createContact.html";
+{	
+  window.location.href = "createContact.html";
 }
 
 
 function goToUpdateContact()
 {
-	window.location.href = "updateContact.html";
+  var x = sessionStorage.getItem("selected");
+	
+  if (x !== "1") {
+	document.getElementById("selectUpdateContactError").innerHTML = "Select a contact to update";
+	return;	
+  }
+	
+  window.location.href = "updateContact.html";
 }
 
 
