@@ -398,6 +398,7 @@ function createContact()
       			// status of 200 means everything is working correctly
       			if (this.readyState == 4 && this.status == 200)
       			{
+				alert(request.reponseText);
 				var jsonObject = JSON.parse(request.responseText);
 				var x = sessionStorage.getItem("contactCount") + 1;
 				if (jsonObject.result === "Contact created successfully")
