@@ -141,7 +141,7 @@ function doRegister()
 function saveCookie()
 {
 	document.cookie = "firstName=" + firstName + ",lastName=" + lastName + ",userId=" + userId;]
-	sessionStorage.removeItem("beenHereBefore");
+	//sessionStorage.removeItem("beenHereBefore");
 }
 
 function readCookie()
