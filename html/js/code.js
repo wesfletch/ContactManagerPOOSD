@@ -77,8 +77,8 @@ function enterLogin(event)
 
 function enterRegister(event, index)
 {
-	alert(event + "testing" + index);
-  if (event.keycode !== 13)
+	//alert(event.keycode + "testing" + index);
+  if (event.keyCode !== 13)
   {
     return;
   }
