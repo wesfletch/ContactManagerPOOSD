@@ -410,7 +410,9 @@ function createContact()
 					document.getElementById("createContactError").innerHTML = jsonObject.result;
 					return;
 				}
-      			}
+      			} else {
+				document.getElementById("createContactError").innerHTML = "Email already exist within a contact";
+			}
 		};
 		request.send(payload);
 
