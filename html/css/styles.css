@@ -52,6 +52,14 @@ body{
 }
 
 .selected {
-    background-color: blue;
+    background-color: black;
     color: #FFF;
 }
+#contactSelect tr:hover {
+  background-color: grey;
+}
+
+#contactSearch tr:hover {
+  background-color: grey;
+}
+
