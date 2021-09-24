@@ -125,11 +125,11 @@
   </div>
   
   <script>
-    //var i = (sessionStorage.getItem(“selectedEmail”));
+    var i = (sessionStorage.getItem(“selectedEmail”));
              
     $(document).ready(function() {
       $("#deleteContactButton").on('click', function() {
-         $("tr:contains(sessionStorage.getItem(“selectedEmail”))").remove(); 
+         $("tr:contains("+i+")").remove(); 
          deleteContact();
       }      
     });
