@@ -18,7 +18,8 @@ function doLogin()
   // Get ready to send to server
   var request = new XMLHttpRequest();
   var endpoint = '/Login.php';
-  request.open("POST", "http://143.198.116.115/LAMPAPI" + endpoint, true);
+  //request.open("POST", "http://143.198.116.115/LAMPAPI" + endpoint, true);
+  request.open("POST", "http://cop4331smallprojectfall21.fun/LAMPAPI" + endpoint, true);
   request.setRequestHeader("Content-type","application/json;charset=UTF-8");
   try
   {
