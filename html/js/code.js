@@ -121,6 +121,7 @@ function doRegister()
 	var lastNameRegister = document.getElementById("lName").value;
 	var userLoginEmail = document.getElementById("loginName").value;
 	var password = document.getElementById("loginPassword").value;
+	password = md5(password, false, false);
 	var phone = document.getElementById("phone").value;
 	var major = document.getElementById("major").value;
 
