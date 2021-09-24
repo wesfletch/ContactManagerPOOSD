@@ -59,6 +59,14 @@ function doLogin()
 	}
 }
 
+function enterUsername(event)
+{
+  if (event.keyCode === 13)
+  {
+    document.getElementById("loginName").focus();
+  }
+}
+
 function enterLogin(event)
 {
   if (event.keyCode === 13)
