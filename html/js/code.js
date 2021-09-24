@@ -265,6 +265,7 @@ function getSearch()
 
 function goToCreateContact()
 {
+	
 	window.location.href = "createContact.html";
 }
 
@@ -341,126 +342,123 @@ function deleteContact()
 {
 	//var txt;
 	
-	var i = sessionStorage.getItem("selected");
+  var i = sessionStorage.getItem("selected");
 	
-	if (i === "1") 
-	{
-		var x = confirm("Delete Contact?");
-		
-		if(x == true)
-		{
-			var email = sessionStorage.getItem("selectedEmail");
-			userId = sessionStorage.getItem("userId");
+  if (i !== "1") {
+	document.getElementById("deleteContactError").innerHTML = "Select a contact to delete";
+	return;
+  }
 
-			var tmp = {userID:userId, email:email};
-			var payload = JSON.stringify( tmp );
+	
+  var x = confirm("Delete Contact?");
+		
+  if(x == true)
+  {
+	var email = sessionStorage.getItem("selectedEmail");
+	userId = sessionStorage.getItem("userId");
+
+	var tmp = {userID:userId, email:email};
+	var payload = JSON.stringify( tmp );
 
 
 	//userId = sessionStorage.getItem("userId");
-			var request = new XMLHttpRequest();
-			var endpoint = '/DeleteContact.php';
-  			request.open("POST", "http://143.198.116.115/LAMPAPI" + endpoint, true);
-  			request.setRequestHeader("Content-type","application/json;charset=UTF-8");
+	var request = new XMLHttpRequest();
+	var endpoint = '/DeleteContact.php';
+  	request.open("POST", "http://143.198.116.115/LAMPAPI" + endpoint, true);
+  	request.setRequestHeader("Content-type","application/json;charset=UTF-8");
 
 
-			try
+	try
+	{
+	  request.onreadystatechange = function()
+	  {
+      		// readyState of 4 means the request finished and the response from server is ready
+      		// status of 200 means everything is working correctly
+      		if (this.readyState == 4 && this.status == 200)
+      		{
+			var jsonObject = JSON.parse(request.responseText);
+			var x = sessionStorage.getItem("contactCount") - 1;
+			if (jsonObject.result === "Contact deletion succeeded")
 			{
-				request.onreadystatechange = function()
-				{
-      					// readyState of 4 means the request finished and the response from server is ready
-      					// status of 200 means everything is working correctly
-      					if (this.readyState == 4 && this.status == 200)
-      					{
-						var jsonObject = JSON.parse(request.responseText);
-						var x = sessionStorage.getItem("contactCount") - 1;
-						if (jsonObject.result === "Contact deletion succeeded")
-						{
-							sessionStorage.setItem("contactCount", x);
-							window.location.href = "contacts.html";					
-						}
-						else
-						{
-							document.getElementById("deleteContactError").innerHTML = jsonObject.result;
-							return;
-						}
-      					}
-				};
-				request.send(payload);
-
-			}
-			catch(err)
+				sessionStorage.setItem("contactCount", x);
+				window.location.href = "contacts.html";					
+			} 
+			else
 			{
-				document.getElementById("deleteContactError").innerHTML = err.message;
+				document.getElementById("deleteContactError").innerHTML = jsonObject.result;
+				return;
 			}
-		}
-	} else {
-		
-		document.getElementById("deleteContactError").innerHTML = "Select a contact to delete";
-		return;
+      		}
+	  };
+	  request.send(payload);
 	}
+	catch(err)
+	{
+		document.getElementById("deleteContactError").innerHTML = err.message;
+	}
+  }
 }
 
 
 
 function updateContact()
 {
-		userId = sessionStorage.getItem("userId");
-		var email = emailM;
+	userId = sessionStorage.getItem("userId");
+	var email = emailM;
 	
-		var firstNameMod = document.getElementById("fNameContact").value;
-		var lastNameMod = document.getElementById("lNameContact").value;
-		var emailMod = document.getElementById("emailContact").value;
-		var phoneMod = document.getElementById("phoneContact").value;
+	var firstNameMod = document.getElementById("fNameContact").value;
+	var lastNameMod = document.getElementById("lNameContact").value;
+	var emailMod = document.getElementById("emailContact").value;
+	var phoneMod = document.getElementById("phoneContact").value;
 	
 
-		//$("#contactSelect").append('<tr><td>' + firstNameContact + '</td><td>' + lastNameContact + '</td><td>' + email + '</td><td>' + phone + '</td></tr>');
-		var tmp = {userID:userId, 
-		   	email:email,
-		   	modifications: {
-			   	lastname:lastNameMod,
-			   	firstname:firstNameMod,
-			   	phone:phoneMod,
-			   	email:emailMod
-		   	}	  
-		  	};
-		var payload = JSON.stringify( tmp );
+	//$("#contactSelect").append('<tr><td>' + firstNameContact + '</td><td>' + lastNameContact + '</td><td>' + email + '</td><td>' + phone + '</td></tr>');
+	var tmp = {userID:userId, 
+		   email:email,
+		   modifications: {
+			   lastname:lastNameMod,
+			   firstname:firstNameMod,
+			   phone:phoneMod,
+			   email:emailMod
+		   }	  
+		  };
+	var payload = JSON.stringify( tmp );
 
 
-		//userId = sessionStorage.getItem("userId");
-		var request = new XMLHttpRequest();
-		var endpoint = '/UpdateContact.php';
-  		request.open("POST", "http://143.198.116.115/LAMPAPI" + endpoint, true);
-  		request.setRequestHeader("Content-type","application/json;charset=UTF-8");
+	//userId = sessionStorage.getItem("userId");
+	var request = new XMLHttpRequest();
+	var endpoint = '/UpdateContact.php';
+  	request.open("POST", "http://143.198.116.115/LAMPAPI" + endpoint, true);
+  	request.setRequestHeader("Content-type","application/json;charset=UTF-8");
 
 
-		try
+	try
+	{
+		request.onreadystatechange = function()
 		{
-			request.onreadystatechange = function()
-			{
-      				// readyState of 4 means the request finished and the response from server is ready
-      				// status of 200 means everything is working correctly
-      				if (this.readyState == 4 && this.status == 200)
-      				{
-					var jsonObject = JSON.parse(request.responseText);
-					//var x = sessionStorage.getItem("contactCount") + 1;
-					if (jsonObject.result === "Contact modification succeeded.")
-					{
-						//sessionStorage.setItem("contactCount", x);
-						window.location.href = "contacts.html";
-					}
-					else
-					{
-						document.getElementById("updateContactError").innerHTML = jsonObject.result;
-						return;
-					}
-      				}
-			};
-			request.send(payload);
-
-		}
-		catch(err)
-		{
-			document.getElementById("updateContactError").innerHTML = err.message;
-		}
+      			// readyState of 4 means the request finished and the response from server is ready
+      			// status of 200 means everything is working correctly
+      			if (this.readyState == 4 && this.status == 200)
+      			{
+				var jsonObject = JSON.parse(request.responseText);
+				//var x = sessionStorage.getItem("contactCount") + 1;
+				if (jsonObject.result === "Contact modification succeeded.")
+				{
+					//sessionStorage.setItem("contactCount", x);
+					window.location.href = "contacts.html";
+				}
+				else
+				{
+					document.getElementById("updateContactError").innerHTML = jsonObject.result;
+					return;
+				}
+      			}
+		};
+		request.send(payload);
+	}
+	catch(err)
+	{
+		document.getElementById("updateContactError").innerHTML = err.message;
+	}
 }
 
