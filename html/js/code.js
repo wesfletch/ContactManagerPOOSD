@@ -398,8 +398,8 @@ function createContact()
       			// status of 200 means everything is working correctly
       			if (this.readyState == 4 && this.status == 200)
       			{
-				alert(request.responseText);
-				if (request.responseText == null)
+				//alert(request.responseText);
+				if (request.responseText == null || request.reponseText[11] == 'E')
 				{
 					document.getElementById("createContactError").innerHTML = "This email is already associated with another contact";
 					return;
