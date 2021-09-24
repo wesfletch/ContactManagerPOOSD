@@ -399,12 +399,20 @@ function createContact()
       			if (this.readyState == 4 && this.status == 200)
       			{
 				//alert(request.responseText + " " + typeof request.reponseText);
-				if (request.reponseText === undefined || request.reponseText === "undefined" || request.reponseText === null || typeof request.responseText === undefined || typeof request.responseText === "undefined" || typeof request.reponseText === null)
+				/*if (request.reponseText === undefined || request.reponseText === "undefined" || request.reponseText === null || typeof request.responseText === undefined || typeof request.responseText === "undefined" || typeof request.reponseText === null)
+				{
+					document.getElementById("createContactError").innerHTML = "This email is already associated with another contact";
+					return;
+				}*/
+				try
+				{
+					var jsonObject = JSON.parse(request.responseText);
+				}
+				catch(err)
 				{
 					document.getElementById("createContactError").innerHTML = "This email is already associated with another contact";
 					return;
 				}
-				var jsonObject = JSON.parse(request.responseText);
 				var x = sessionStorage.getItem("contactCount") + 1;
 				if (jsonObject.result === "Contact created successfully")
 				{
