@@ -75,6 +75,38 @@ function enterLogin(event)
   }
 }
 
+function enterRegister(event, index)
+{
+  if (event.keycode !== 13)
+  {
+    return;
+  }
+  if (index === 0)
+  {
+    document.getElementById("lName").focus();
+  }
+  else if (index === 1)
+  {
+    document.getElementById("loginName").focus();
+  }
+  else if (index === 2)
+  {
+    document.getElementById("loginPassword").focus();
+  }
+  else if (index === 3)
+  {
+    document.getElementById("phone").focus();
+  }
+  else if (index === 4)
+  {
+    document.getElementById("major").focus();
+  }
+  else if (index === 5)
+  {
+    doRegister();
+  }
+}
+
 function goToRegister()
 {
 	window.location.href = "registration.html";
