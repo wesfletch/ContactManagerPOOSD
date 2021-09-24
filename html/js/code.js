@@ -398,7 +398,11 @@ function createContact()
       			// status of 200 means everything is working correctly
       			if (this.readyState == 4 && this.status == 200)
       			{
-				alert(request.reponseText);
+				if (request.responseText == null)
+				{
+					document.getElementById("createContactError").innerHTML = "This email is already associated with another contact";
+					return;
+				}
 				var jsonObject = JSON.parse(request.responseText);
 				var x = sessionStorage.getItem("contactCount") + 1;
 				if (jsonObject.result === "Contact created successfully")
