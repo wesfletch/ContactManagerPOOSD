@@ -81,6 +81,7 @@ function enterRegister(event, index)
   {
     return;
   }
+	alert(typeof index);
   if (index === 0)
   {
     document.getElementById("lName").focus();
