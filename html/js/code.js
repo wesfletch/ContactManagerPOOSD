@@ -96,7 +96,8 @@ function doRegister()
 
 	 var request = new XMLHttpRequest();
   	var endpoint = '/Register.php';
-  	request.open("POST", "http://143.198.116.115/LAMPAPI" + endpoint, true);
+  	//request.open("POST", "http://143.198.116.115/LAMPAPI" + endpoint, true);
+	request.open("POST", "http://cop4331smallprojectfall21.fun/LAMPAPI" + endpoint, true);
   	request.setRequestHeader("Content-type","application/json;charset=UTF-8");
   try
   {
@@ -178,7 +179,8 @@ function getContacts()
         return;
       }
     };
-    request.open("GET", "http://143.198.116.115/LAMPAPI" + endpoint + "?userID=" + userId);
+    //request.open("GET", "http://143.198.116.115/LAMPAPI" + endpoint + "?userID=" + userId);
+    request.open("GET", "http://cop4331smallprojectfall21.fun/LAMPAPI" + endpoint + "?userID=" + userId);
     request.send();
   }
   catch(err)
@@ -221,7 +223,8 @@ function getLazyContacts()
         return;
       }
     };
-    request.open("GET", "http://143.198.116.115/LAMPAPI" + endpoint + "?userID=" + userId + "&batch_size=" + BATCH_SIZE + "&batch_number=" + batchNumber);
+    //request.open("GET", "http://143.198.116.115/LAMPAPI" + endpoint + "?userID=" + userId + "&batch_size=" + BATCH_SIZE + "&batch_number=" + batchNumber);
+    request.open("GET", "http://cop4331smallprojectfall21.fun/LAMPAPI" + endpoint + "?userID=" + userId + "&batch_size=" + BATCH_SIZE + "&batch_number=" + batchNumber);
     request.send();
   }
   catch(err)
@@ -253,7 +256,8 @@ function getSearch()
         return;
       }
     };
-    request.open("GET", "http://143.198.116.115/LAMPAPI" + endpoint + "?userID=" + userId + "&pattern=" + document.getElementById("searchBar").value);
+    //request.open("GET", "http://143.198.116.115/LAMPAPI" + endpoint + "?userID=" + userId + "&pattern=" + document.getElementById("searchBar").value);
+    request.open("GET", "http://cop4331smallprojectfall21.fun/LAMPAPI" + endpoint + "?userID=" + userId + "&pattern=" + document.getElementById("searchBar").value);
     //alert("http://143.198.116.115/LAMPAPI" + endpoint + "?userID=" + userId + "&pattern=" + document.getElementById("searchBar").value);
     request.send();
   }
@@ -307,7 +311,8 @@ function createContact()
 	//userId = sessionStorage.getItem("userId");
 	var request = new XMLHttpRequest();
 	var endpoint = '/CreateContact.php';
-  	request.open("POST", "http://143.198.116.115/LAMPAPI" + endpoint, true);
+  	//request.open("POST", "http://143.198.116.115/LAMPAPI" + endpoint, true);
+	request.open("POST", "http://cop4331smallprojectfall21.fun/LAMPAPI" + endpoint, true);
   	request.setRequestHeader("Content-type","application/json;charset=UTF-8");
 
 
@@ -372,7 +377,8 @@ function deleteContact()
 	//userId = sessionStorage.getItem("userId");
 	var request = new XMLHttpRequest();
 	var endpoint = '/DeleteContact.php';
-  	request.open("POST", "http://143.198.116.115/LAMPAPI" + endpoint, true);
+  	//request.open("POST", "http://143.198.116.115/LAMPAPI" + endpoint, true);
+        request.open("POST", "http://cop4331smallprojectfall21.fun/LAMPAPI" + endpoint, true);
   	request.setRequestHeader("Content-type","application/json;charset=UTF-8");
 
 
@@ -437,7 +443,8 @@ function updateContact()
   //userId = sessionStorage.getItem("userId");
   var request = new XMLHttpRequest();
   var endpoint = '/UpdateContact.php';
-  request.open("POST", "http://143.198.116.115/LAMPAPI" + endpoint, true);
+  //request.open("POST", "http://143.198.116.115/LAMPAPI" + endpoint, true);
+  request.open("POST", "http://cop4331smallprojectfall21.fun/LAMPAPI" + endpoint, true);
   request.setRequestHeader("Content-type","application/json;charset=UTF-8");
 
 
