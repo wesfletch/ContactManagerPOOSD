@@ -361,6 +361,7 @@ function deleteContact()
   if(x == true)
   {
 	var email = sessionStorage.getItem("selectedEmail");
+	$("tr:contains(" + email + ")").remove();
 	userId = sessionStorage.getItem("userId");
 
 	var tmp = {userID:userId, email:email};
