@@ -63,7 +63,7 @@ function enterUsername(event)
 {
   if (event.keyCode === 13)
   {
-    document.getElementById("loginName").focus();
+    document.getElementById("loginPassword").focus();
   }
 }
 
