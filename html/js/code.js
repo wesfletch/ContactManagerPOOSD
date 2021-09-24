@@ -162,7 +162,7 @@ function doRegister()
 	}
 	else
 	{
-		document.getElementById("registerError").innerHTML = jsonObject.result;
+		document.getElementById("registerError").innerHTML = "Email already in use";
 		return;
 	}
 //	document.getElementById("accountAddResult").innerHTML = "Account has been added";
