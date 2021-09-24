@@ -25,8 +25,9 @@
         if ( $row = $result->fetch_assoc()  )
         {
             returnWithError("Error creating contact; a contact with the specified email already exists");
+            $stmt->close();
         }
-        $stmt->close();
+        
 
         
         // create the new contact
