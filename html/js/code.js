@@ -157,6 +157,7 @@ function doRegister()
 	if (jsonObject.result === "User successfully created")
 	{
 		userId = jsonObject.id;
+		sessionStorage.setItem("userId",userId);
 		firstName = firstNameRegister;
 		lastName = lastNameRegister;
 		saveCookie();
