@@ -1,7 +1,7 @@
 //var urlBase = 'http://cop4331smallprojectfall21.fun/LAMPAPI';
 //var extension = 'php';
 
-const BATCH_SIZE = 20;
+const BATCH_SIZE = 8;
 var userId = 0;
 var firstName = "";
 var lastName = "";
